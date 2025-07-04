@@ -11,7 +11,7 @@ Ein interaktives React-Projekt zur Visualisierung von Behauptungen und Netzwerke
 
 ## Technologien
 
-- React 18
+- React 18s
 - TypeScript
 - Tailwind CSS
 - D3.js
