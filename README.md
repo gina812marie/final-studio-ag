@@ -69,4 +69,4 @@ src/
 
 ## Lizenz
 
-MIT 
+MIT
