@@ -4,7 +4,7 @@
  * Erstellt den korrekten Pfad für Profilbilder
  */
 export const getProfileImagePath = (filename: string): string => {
-  return `/images/profiles/${filename}`;
+  return `${import.meta.env.BASE_URL}images/${filename}`;
 };
 
 /**

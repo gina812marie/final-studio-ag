@@ -21,12 +21,12 @@ export const claimsData: ClaimData[] = [
     frontContent: {
       title: 'Es gibt einen Zwang zu Wärmepumpen!',
       subtitle: '"Es muss Schluss sein mit dem Zwang zur Wärmepumpe."',
-      description: 'Katherina Reiche fordert in einem Interview mit dem Handelsblatt, dass der „Zwang zur Wärmepumpe" ein Ende haben müsse, da Klimaschutz nicht das alleinige Ziel sein könne und Technologieoffenheit gebraucht werde.',
-      image: '/images/Wärmepumpe_1 1.png',
+      description: 'Katherina Reiche fordert in einem Interview mit dem Handelsblatt, dass der "Zwang zur Wärmepumpe" ein Ende haben müsse, da Klimaschutz nicht das alleinige Ziel sein könne und Technologieoffenheit gebraucht werde.',
+      image: `${import.meta.env.BASE_URL}images/Wärmepumpe_1 1.png`,
       source: 'Handelsblatt, Grüne kritisieren Reiches Aussagen zur Wärmepumpe'
     },
     backContent: {
-      title: 'Von einem „Wärmepumpenzwang" war nie die Rede',
+      title: 'Von einem "Wärmepumpenzwang" war nie die Rede',
       content: 'Das Gebäudeenergiegesetz schreibt keinen Zwang zur Wärmepumpe vor, sondern fordert, dass Heizungen ab 2024 mindestens 65 % erneuerbare Energien nutzen müssen. Diese Vorgabe kann mit verschiedenen Technologien erfüllt werden, darunter Wärmepumpen, Biomasseheizungen, Fernwärme oder hybride Systeme. Die Regelung ist technologieoffen und erlaubt den Eigentümern Wahlfreiheit bei der Heizungsart, solange die Klimaziele eingehalten werden. Dadurch sollen sowohl Klimaschutz als auch praktikable Lösungen für unterschiedliche Gebäudetypen und regionale Gegebenheiten ermöglicht werden.',
       source: 'Gebäudeenergiegesetz, GEG'
     }
@@ -37,7 +37,7 @@ export const claimsData: ClaimData[] = [
       title: 'CO₂-Wert am Rekordtief',
       subtitle: 'Der heutige CO₂-Wert liegt nahe einem Rekordtief, nicht aber ein gefährliches Rekordhoch.',
       description: 'Professor William Happer, Physikprofessor an der Princeton University, veröffentlichte ein Paper zu seiner Klimathese. Darin führt er aus, dass die heutige CO₂-Konzentration im Vergleich zu den Werten vor 600 Millionen Jahren deutlich niedriger sei - nahezu auf einem Rekordtief. Daraus schlussfolgert er, dass höhere CO₂-Konzentrationen in der Vergangenheit dem Leben auf der Erde nicht geschadet hätten und daher auch heute unbedenklich seien.',
-      image: '/images/DinosaurierLiegestuhl_2G 1.png',
+      image: `${import.meta.env.BASE_URL}images/DinosaurierLiegestuhl_2G 1.png`,
       source: 'Critical Comment on Professor HAPPERS Climate Theses; Kanal: Grenzen des Wissens'
     },
     backContent: {
@@ -51,8 +51,8 @@ export const claimsData: ClaimData[] = [
     frontContent: {
       title: 'Reißt die Windkrafträder ab!',
       subtitle: '"Und ich kann Ihnen sagen, wenn wir am Ruder sind, wir reißen alle Windkraftwerke nieder. Nieder mit diesen Windmühlen der Schande."',
-      description: 'Alice Weidel kündigt an, im Falle einer Regierungsbeteiligung sämtliche Windkraftanlagen abzureißen und bezeichnete sie als „Windmühlen der Schande", die das Landschaftsbild und die Energiepolitik negativ prägen würden.',
-      image: '/images/BaggerWindrad_3 2.png',
+      description: 'Alice Weidel kündigt an, im Falle einer Regierungsbeteiligung sämtliche Windkraftanlagen abzureißen und bezeichnete sie als "Windmühlen der Schande", die das Landschaftsbild und die Energiepolitik negativ prägen würden.',
+      image: `${import.meta.env.BASE_URL}images/BaggerWindrad_3 2.png`,
       source: 'tagesschau, Was ist dran an den Behauptungen über Windkraft?'
     },
     backContent: {
@@ -67,7 +67,7 @@ export const claimsData: ClaimData[] = [
       title: 'Extremwetter werden nicht mehr!',
       subtitle: '"Keiner der gängigen Extremwetter-Typen in Deutschland hat bisher die natürliche Schwankungsbreite des Klimasystems verlassen."',
       description: 'Diese Aussage tätigte Sebastian Luening in einem Vortrag auf der 14. Internationale EIKE Klima- und Energiekonferenz der IKEK-14.',
-      image: '/images/Behauptung 5 1.png',
+      image: `${import.meta.env.BASE_URL}images/Behauptung 5 1.png`,
       source: 'Eike'
     },
     backContent: {
@@ -82,12 +82,12 @@ export const claimsData: ClaimData[] = [
       title: 'Windkrafträder erzeugen weniger Energie als Kraftwerke',
       subtitle: '"Windenergie benötigt viel Material, erzeugt aber wenig Energie im Vergleich zu Kraftwerken. Nach wenigen Jahrzehnten hat ein Windrad seine Lebensdauer erreicht und muss aufwendig rückgebaut werden."',
       description: 'Chrupalla kritisiert die Effizienz und Nachhaltigkeit von Windenergieanlagen. Nach seiner Darstellung sind Windräder nicht wirtschaftlich, da sie nur kurze Lebenszyklen haben und später aufwendig rückgebaut werden müssten.',
-      image: '/images/WindkraftvsAtomkraft_2 1.png',
+      image: `${import.meta.env.BASE_URL}images/WindkraftvsAtomkraft_2 1.png`,
       source: 'MDR, Windkraftbranche widerspricht AfD-Aussagen zu erneuerbaren Energien'
     },
     backContent: {
       title: 'Windkrafträder sind tatsächlich sehr effizient',
-      content: 'Fakt ist: Moderne Windkraftanlagen haben eine Lebensdauer von rund 25 bis 30 Jahren und einen sehr hohen Energieertrag im Verhältnis zum eingesetzten Material. Der sogenannte „Erntefaktor" (Energy Returned on Energy Invested) liegt bei Windenergie bei etwa 30 bis 70 – das bedeutet, dass ein Windrad während seiner Lebensdauer 30- bis 70-mal mehr Energie erzeugt, als für Bau, Betrieb und Rückbau nötig ist.\n\nZudem ist die Rückbaubarkeit von Windrädern technisch lösbar: Fundamente, Turm und Maschinenhaus sind überwiegend recycelbar. Auch die Leistung hat sich stark verbessert: Neue Anlagen erreichen heute 5,3 MW und arbeiten effizienter bei niedrigeren Windgeschwindigkeiten als frühere Modelle.\n\nTino Chrupallas Behauptung ist irreführend.',
+      content: 'Fakt ist: Moderne Windkraftanlagen haben eine Lebensdauer von rund 25 bis 30 Jahren und einen sehr hohen Energieertrag im Verhältnis zum eingesetzten Material. Der sogenannte "Erntefaktor" (Energy Returned on Energy Invested) liegt bei Windenergie bei etwa 30 bis 70 – das bedeutet, dass ein Windrad während seiner Lebensdauer 30- bis 70-mal mehr Energie erzeugt, als für Bau, Betrieb und Rückbau nötig ist.\n\nZudem ist die Rückbaubarkeit von Windrädern technisch lösbar: Fundamente, Turm und Maschinenhaus sind überwiegend recycelbar. Auch die Leistung hat sich stark verbessert: Neue Anlagen erreichen heute 5,3 MW und arbeiten effizienter bei niedrigeren Windgeschwindigkeiten als frühere Modelle.\n\nTino Chrupallas Behauptung ist irreführend.',
       source: 'MDR, Windkraftbranche widerspricht AfD-Aussagen zu erneuerbaren Energien'
     }
   },
@@ -97,12 +97,12 @@ export const claimsData: ClaimData[] = [
       title: 'Ein wärmeres Klima ist vorteilhaft',
       subtitle: '"Ein wärmeres Klima war schon immer ein Segen für den Menschen."',
       description: 'Ein wärmeres Klima war schon immer ein Segen für den Menschen.',
-      image: '/images/SunnyBeach_4 1.png',
+      image: `${import.meta.env.BASE_URL}images/SunnyBeach_4 1.png`,
       source: 'Schlumpfargumente, Rede von Anja Arndt im europäischen Parlament'
     },
     backContent: {
       title: 'Und was ist mit den Umweltkatastrophen?',
-      content: 'Der Weltklimarat (IPCC) stellt klar: Der aktuelle Klimawandel ist menschengemacht und bereits heute mit gravierenden Folgen verbunden – darunter Extremwetter, Dürren, Überschwemmungen, Artensterben und Ernteausfälle. Die Geschwindigkeit des Temperaturanstiegs ist rasant und überfordert die Anpassungsfähigkeit vieler Ökosysteme und Gesellschaften.\n\nFrühere Warmzeiten verliefen deutlich langsamer und hatten nicht den heutigen globalen CO₂-Ausstoß zur Ursache. Besonders gefährdet sind Regionen mit schwacher Infrastruktur, wie viele Länder des globalen Südens.\n\nEin pauschales „wärmer ist besser" verkennt die Realität: Der heutige Klimawandel ist eine Bedrohung für die gesamte Erde.',
+      content: 'Der Weltklimarat (IPCC) stellt klar: Der aktuelle Klimawandel ist menschengemacht und bereits heute mit gravierenden Folgen verbunden – darunter Extremwetter, Dürren, Überschwemmungen, Artensterben und Ernteausfälle. Die Geschwindigkeit des Temperaturanstiegs ist rasant und überfordert die Anpassungsfähigkeit vieler Ökosysteme und Gesellschaften.\n\nFrühere Warmzeiten verliefen deutlich langsamer und hatten nicht den heutigen globalen CO₂-Ausstoß zur Ursache. Besonders gefährdet sind Regionen mit schwacher Infrastruktur, wie viele Länder des globalen Südens.\n\nEin pauschales "wärmer ist besser" verkennt die Realität: Der heutige Klimawandel ist eine Bedrohung für die gesamte Erde.',
       source: 'Intergovernmental Panel on Climate Change'
     }
   },
@@ -112,7 +112,7 @@ export const claimsData: ClaimData[] = [
       title: 'Mehr CO₂ = mehr Essen',
       subtitle: 'Mehr Kohlendioxid bedeutet mehr Nahrung. Entgegen der weit verbreiteten Berichterstattung ist Kohlendioxid lebensnotwendig für das Leben auf der Erde. Da die Atmosphäre inzwischen mit Kohlendioxid gesättigt ist, führt ein weiterer Anstieg dazu, dass weltweit mehr Nahrungsmittel produziert werden können.',
       description: 'Diese Aussage stammt von Lindzen, W. Happer und W. van Wijngaarden, drei Professoren aus Massachusetts Institute of Technology, der Princeton University und der York University in einem Bericht.',
-      image: '/images/Behauptung 406 1.png',
+      image: `${import.meta.env.BASE_URL}images/Behauptung 406 1.png`,
       source: 'Net Zero Avoided Temperature Increase'
     },
     backContent: {
@@ -126,8 +126,8 @@ export const claimsData: ClaimData[] = [
     frontContent: {
       title: 'Das Feuer um die Wärmepumpe',
       subtitle: '"Die Wärmepumpe ist die letzte Entfremdung des Menschen vom Feuer."',
-      description: 'Marcus Woeller beschreibt in einem kulturkritischen Artikel die Wärmepumpe als kaltes, unästhetisches Technikobjekt, das den Menschen emotional vom „Feuer" entfremdet – also von traditionellen Heizformen wie Kachelöfen oder Gasheizungen.',
-      image: '/images/FeuerUmWärmepumpe_5 1.png'
+      description: 'Marcus Woeller beschreibt in einem kulturkritischen Artikel die Wärmepumpe als kaltes, unästhetisches Technikobjekt, das den Menschen emotional vom "Feuer" entfremdet – also von traditionellen Heizformen wie Kachelöfen oder Gasheizungen.',
+      image: `${import.meta.env.BASE_URL}images/FeuerUmWärmepumpe_5 1.png`
     },
     backContent: {
       title: 'Aber Wärmepumpen sind doch am effizientesten, oder?',
@@ -141,12 +141,12 @@ export const claimsData: ClaimData[] = [
       title: 'Deutscher CO₂-Ausstoß global bedeutungslos',
       subtitle: '"Auf den weltweiten CO2 Ausstoß hätte eine Senkung der deutschen Werte gar keinen Einfluss"',
       description: 'In einem YouTube-Video des offiziellen Kanals der AfD erklärt Beatrix von Storch, dass selbst wenn der Klimawandel menschengemacht sei, Deutschland nur wenig zu seiner Eindämmung beitragen könne.',
-      image: '/images/CO2Deutschland_G 1.png',
+      image: `${import.meta.env.BASE_URL}images/CO2Deutschland_G 1.png`,
       source: 'Offizieller YouTube Kanal der AfD'
     },
     backContent: {
       title: 'Falsches Verhältnis',
-      content: 'Beatrix von Storch behauptet, eine Senkung der deutschen CO₂-Emissionen hätte „gar keinen Einfluss" auf das Weltklima. Das ist irreführend.\n\nZwar verursacht Deutschland nur rund 2 % der weltweiten Emissionen, stellt aber nur etwa 1 % der Weltbevölkerung. Der Pro-Kopf-Ausstoß in Deutschland ist überdurchschnittlich hoch – mehr als doppelt so hoch wie im globalen Durchschnitt. Das bedeutet: Deutschland gehört zu den Ländern mit besonders großem Beitrag zur Erderwärmung – gemessen an seiner Größe.\n\nZudem gilt:\nJede Tonne eingespartes CO₂ zählt weltweit.\nDeutschland hat durch Technologieexport, internationale Partnerschaften und politische Vorbildwirkung echten Einfluss.\nMechanismen wie der EU-Emissionshandel und der geplante CO₂-Grenzausgleich (CBAM) verhindern weitgehend, dass Emissionen einfach in andere Länder „verlagert" werden.\n\nFazit: Deutschlands CO₂-Reduktionen sind relevant und notwendig – aus Verantwortung für den eigenen überdurchschnittlichen Fußabdruck und als Teil einer globalen Lösung.',
+      content: 'Beatrix von Storch behauptet, eine Senkung der deutschen CO₂-Emissionen hätte "gar keinen Einfluss" auf das Weltklima. Das ist irreführend.\n\nZwar verursacht Deutschland nur rund 2 % der weltweiten Emissionen, stellt aber nur etwa 1 % der Weltbevölkerung. Der Pro-Kopf-Ausstoß in Deutschland ist überdurchschnittlich hoch – mehr als doppelt so hoch wie im globalen Durchschnitt. Das bedeutet: Deutschland gehört zu den Ländern mit besonders großem Beitrag zur Erderwärmung – gemessen an seiner Größe.\n\nZudem gilt:\nJede Tonne eingespartes CO₂ zählt weltweit.\nDeutschland hat durch Technologieexport, internationale Partnerschaften und politische Vorbildwirkung echten Einfluss.\nMechanismen wie der EU-Emissionshandel und der geplante CO₂-Grenzausgleich (CBAM) verhindern weitgehend, dass Emissionen einfach in andere Länder "verlagert" werden.\n\nFazit: Deutschlands CO₂-Reduktionen sind relevant und notwendig – aus Verantwortung für den eigenen überdurchschnittlichen Fußabdruck und als Teil einer globalen Lösung.',
       source: 'Statista, CO₂-Emissionen pro Kopf weltweit nach ausgewählten Ländern im Jahr 2023'
     }
   },
@@ -156,7 +156,7 @@ export const claimsData: ClaimData[] = [
       title: 'Deutschland in der Dunkelflaute',
       subtitle: '"Deutschland befindet sich inmitten einer Dunkelflaute. Zwischen 7 und 8 Uhr konsumierte Deutschland knapp 64 Gigawattstunden Strom. Aber was liefert uns das Land selbst? Nur rund 49 Gigawattstunden – ein klares Minus von fast 25 Prozent!"',
       description: 'Nena Brockhaus behauptet in ihrer Kolumne, Deutschland könne bei Dunkelflauten nicht genügend Strom selbst erzeugen. Das Land sei in diesen Momenten stark auf Importe angewiesen.',
-      image: '/images/Dunkelflauten_6 1.png',
+      image: `${import.meta.env.BASE_URL}images/Dunkelflauten_6 1.png`,
       source: 'Focus Online, Deutschland in der Dunkelflaute: Wir sind der Geisterfahrer Europas, Nena Brockhaus'
     },
     backContent: {
@@ -171,7 +171,7 @@ export const claimsData: ClaimData[] = [
       title: 'Fünf Meter Schnee bei Klimaerwärmung?',
       subtitle: '"Dass es in Japan bis zu fünf Meter Schnee gab, widerspreche dem menschengemachten Klimawandel."',
       description: 'Beiträge auf Telegram, Facebook und X behaupten, dass die bis zu fünf Meter Schnee in Japan ein Beweis gegen den menschengemachten Klimawandel seien. Im Februar 2025 fiel in Teilen Japans ungewöhnlich viel Schnee.',
-      image: '/images/JapanInSchnee_7 1.png',
+      image: `${import.meta.env.BASE_URL}images/JapanInSchnee_7 1.png`,
       source: 'Correctiv, Rekordschnee in Japan ist kein Argument gegen den menschengemachten Klimawandel'
     },
     backContent: {
@@ -186,7 +186,7 @@ export const claimsData: ClaimData[] = [
       title: 'Die Sonne ist Schuld',
       subtitle: '"Dann sollten wir der Sonne erklären, dass Sie nicht so viel scheinen soll. (...) Wir sollten die Sonne verklagen."',
       description: 'Diese Aussage tätigte AfD-Politikerin Beatrix von Storch in einem Interview mit dem YouTube Kanal Jung und Naiv. Hier erklärt sie wie die Sonne der Haupttreiber des Klimawandels sein soll.',
-      image: '/images/AngrySun_8G 1.png',
+      image: `${import.meta.env.BASE_URL}images/AngrySun_8G 1.png`,
       source: 'Klimaexpertin Beatrix von Storch (AfD) will die Sonne verklagen, YouTube'
     },
     backContent: {
@@ -200,8 +200,8 @@ export const claimsData: ClaimData[] = [
     frontContent: {
       title: 'Solarparks verbrennen Vögel',
       subtitle: '"Über Solarparks entsteht so große Hitze, dass Vögel und Insekten sterben und der Boden kilometerweit austrocknet."',
-      description: 'Ein viraler Facebook-Post behauptet, über Solarparks entstehe ein „Hitzeschornstein" mit bis zu 80 °C, der Vögel und Insekten töte und den Boden kilometerweit austrockne. Ein Spaziergänger äußerte sich in seinem Post über die Solarparks in Brandenburg. Der Post wurde daraufhin auf Desinformationsseiten weiterverbreitet.',
-      image: '/images/SolarparksDyingBirbs_8 1.png',
+      description: 'Ein viraler Facebook-Post behauptet, über Solarparks entstehe ein "Hitzeschornstein" mit bis zu 80 °C, der Vögel und Insekten töte und den Boden kilometerweit austrockne. Ein Spaziergänger äußerte sich in seinem Post über die Solarparks in Brandenburg. Der Post wurde daraufhin auf Desinformationsseiten weiterverbreitet.',
+      image: `${import.meta.env.BASE_URL}images/SolarparksDyingBirbs_8 1.png`,
       source: 'Correctiv, Nein, über Solarparks entsteht keine so große Hitze, dass Vögel und Insekten sterben'
     },
     backContent: {
@@ -216,7 +216,7 @@ export const claimsData: ClaimData[] = [
       title: 'Die Erde wird grüner!',
       subtitle: 'Dank des Klimawandels wird die Erde Grüner. Mehr CO2 in der Atmosphere unterstützt das Pflanzenwachstum.',
       description: 'Diese Aussage findet man in einem Artikel des "The Heartland Institute" welches sich auf eine Studie "Earth\'s record-high greenness and its attributions in 2020" und einem NASA Artikel beziehen soll. Laut dieser Studie sei die Erde durch mehr Kohlenstoffdioxid in der Atmosphäre grüner geworden. Dies sei eine positive Folge des Klimawandels und gut für die Bevölkerung.',
-      image: '/images/Behauptung 1_02 1.png',
+      image: `${import.meta.env.BASE_URL}images/Behauptung 1_02 1.png`,
       source: 'Eike; The Heartland Institute'
     },
     backContent: {
@@ -231,12 +231,12 @@ export const claimsData: ClaimData[] = [
       title: 'Atomkraft ist CO₂-neutral',
       subtitle: '"Nuclear energy is carbon free – Atomkraft ist CO₂-neutral"',
       description: 'AfD-Spitzenkandidatin Alice Weidel sagt im Gespräch mit Elon Musk am 9. Januar 2025, dass Atomenergie CO₂-neutral ist, und stellt sie damit als klimafreundliche Alternative dar.',
-      image: '/images/GreenAtomkraft_9 1.png',
+      image: `${import.meta.env.BASE_URL}images/GreenAtomkraft_9 1.png`,
       source: 'tagesschau, Was bleibt vom Gespräch Weidel-Musk?'
     },
     backContent: {
       title: 'Schon mal an den Bau einer Atomkraftanlage gedacht?',
-      content: 'Zwar stößt ein Atomkraftwerk im Betrieb kaum CO₂ aus, doch das greift zu kurz. Der gesamte Lebenszyklus der Kernenergie – von Uranabbau, Anreicherung und Brennstoffherstellung bis hin zu Bau, Betrieb, Rückbau und Endlagerung – verursacht Emissionen.\n\nDer Wissenschaftliche Dienst des Bundestags (2019) stellt klar: Atomkraft ist nicht emissionsfrei. Klimafreundlich? Ja, im Vergleich zu Kohle. Aber CO₂-neutral? Nein.\n\nStudien zeigen, dass Erneuerbare wie Wind und Solar eine deutlich bessere Klimabilanz haben. Atomkraft verursacht zwar weniger Emissionen als fossile Energien, ist aber keinesfalls „carbon free".\n\nWer den gesamten CO₂-Fußabdruck betrachtet, erkennt: Die Aussage von Weidel ist irreführend.',
+      content: 'Zwar stößt ein Atomkraftwerk im Betrieb kaum CO₂ aus, doch das greift zu kurz. Der gesamte Lebenszyklus der Kernenergie – von Uranabbau, Anreicherung und Brennstoffherstellung bis hin zu Bau, Betrieb, Rückbau und Endlagerung – verursacht Emissionen.\n\nDer Wissenschaftliche Dienst des Bundestags (2019) stellt klar: Atomkraft ist nicht emissionsfrei. Klimafreundlich? Ja, im Vergleich zu Kohle. Aber CO₂-neutral? Nein.\n\nStudien zeigen, dass Erneuerbare wie Wind und Solar eine deutlich bessere Klimabilanz haben. Atomkraft verursacht zwar weniger Emissionen als fossile Energien, ist aber keinesfalls "carbon free".\n\nWer den gesamten CO₂-Fußabdruck betrachtet, erkennt: Die Aussage von Weidel ist irreführend.',
       source: 'Correctiv, Nein, Atomkraft ist nicht CO2-neutral'
     }
   },
@@ -246,7 +246,7 @@ export const claimsData: ClaimData[] = [
       title: 'Die Mittelalterliche Warmzeit',
       subtitle: '"Im Mittelalter war es wärmer als heute."',
       description: 'In einem YouTube Video von auf dem offiziellen Kanal von EIKE wird von einer mittelalterlichen Warmzeit gesprochen und wie die Menschen auch dort überlebt hatten.',
-      image: '/images/SweatingKnight_9G 1.png',
+      image: `${import.meta.env.BASE_URL}images/SweatingKnight_9G 1.png`,
       source: 'Fragen zum Klimawandel (YouTube Kanal von EIKE)'
     },
     backContent: {
@@ -259,9 +259,9 @@ export const claimsData: ClaimData[] = [
     id: 17,
     frontContent: {
       title: 'Der Klimaschwindel der Medien!',
-      subtitle: '"Medienberichte dazu, dass sich mehrere Länder und Kontinente schneller als der Rest der Welt erwärmten, belegten einen „Klimaschwindel""',
+      subtitle: '"Medienberichte dazu, dass sich mehrere Länder und Kontinente schneller als der Rest der Welt erwärmten, belegten einen "Klimaschwindel""',
       description: 'In einem Instagram-Video vom 21.06.2024 behauptet ToniTano, dass Deutschland gar nicht vom Klimawandel betroffen sei. Die steigenden Temperaturen seien Erfindungen der Medien, um Angst zu schüren.',
-      image: '/images/Klimaschwindel_10 1.png',
+      image: `${import.meta.env.BASE_URL}images/Klimaschwindel_10 1.png`,
       source: 'Correctiv, Klimawandel: Warum sich mehrere Regionen schneller als der Rest der Welt erwärmen'
     },
     backContent: {
@@ -277,7 +277,7 @@ export const claimsData: ClaimData[] = [
       title: 'Behauptung 18',
       subtitle: '"Irreführende Aussage 18 der Fossilfuellobby"',
       description: 'Hier können Sie die Beschreibung für Behauptung 18 einfügen. Bearbeiten Sie einfach die claimsData.ts Datei und fügen Sie echte Inhalte hinzu.',
-      image: '/images/claim-18.jpg' // Platzhalter - ersetzen Sie mit echten Bildern
+      image: `${import.meta.env.BASE_URL}images/claim-18.jpg` // Platzhalter - ersetzen Sie mit echten Bildern
     },
     backContent: {
       title: 'Faktencheck 18',
@@ -303,7 +303,7 @@ export const createClaim = (
     title,
     subtitle,
     description,
-    image: imagePath ? `/images/${imagePath}` : undefined,
+    image: imagePath ? `${import.meta.env.BASE_URL}images/${imagePath}` : undefined,
     source: frontSource
   },
   backContent: {

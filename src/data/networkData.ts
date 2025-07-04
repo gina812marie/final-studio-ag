@@ -22,7 +22,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Bundesministerin für Wirtschaft und Energie',
         description: 'Ehemalige Chefin von Westenergie und Vorsitzende des Wirtschaftsrats der CDU',
         type: 'person',
-        profileImage: '/images/katharina-reiche.jpg',
+        profileImage: `${import.meta.env.BASE_URL}images/katharina-reiche.jpg`,
         position: 'center' // Katharina Reiche als zentrale Figur
       },
       {
