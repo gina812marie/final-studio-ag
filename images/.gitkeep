@@ -1,0 +1,25 @@
+# Bilder-Ordner für lokale Assets
+
+Legen Sie hier Ihre Bilder ab:
+
+## Profilbilder (Personen):
+- katharina-reiche.jpg
+- helmut-alt.jpg
+- alice-weidel.jpg
+- tino-chrupalla.jpg
+- michael-limburg.jpg
+- koch-brothers.jpg
+- placeholder-person.jpg
+
+## Claim-Bilder:
+- waermepumpe-claim.jpg
+- windkraft-claim.jpg
+- claim-3.jpg bis claim-18.jpg
+
+## Logos (optional, falls nicht als Text):
+- eike-logo.png
+- westenergie-logo.png
+- afd-logo.png
+- etc.
+
+Alle Bilder werden automatisch über den /images/ Pfad geladen.
