@@ -35,6 +35,9 @@ export interface NetworkConnection {
     | 'investiert'
     | 'veröffentlicht'
     | 'auszeichnung'
+    | 'arbeitet bei'
+    | 'gehört zu'
+    | 'beeinflußt'
     | '';
 }
 

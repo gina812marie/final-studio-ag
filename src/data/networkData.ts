@@ -126,7 +126,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanische Unternehmen',
         description: 'Koch Industries ist ein US-amerikanisches Unternehmen im Bereich der fossilen Rohstoffgewinnung',
         type: 'company',
-        profileImage: 'images/koch-industries.jpg',
+        profileImage: 'images/koch-industries_416x416.jpg',
         x: 900,
         y: 200
       },
@@ -176,7 +176,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: 'images/016423063.jpg',
+        profileImage: 'images/afd.jpg',
         x: 900,
         y: 200
       }
@@ -371,7 +371,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: 'images/016423063.jpg',
+        profileImage: 'images/afd.jpg',
         x: 900,
         y: 200
       }
@@ -400,7 +400,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: 'images/016423063.jpg',
+        profileImage: 'images/afd.jpg',
         x: 300,
         y: 200,
         position: 'center'
@@ -480,7 +480,7 @@ export const networkDatasets: NetworkData[] = [
         type: 'person',
         profileImage: 'images/Anja Andt.jpg',
         x: 300,
-        y: 200,
+        y: 201,
         position: 'center'
       },
       {
@@ -489,7 +489,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: 'images/016423063.jpg',
+        profileImage: 'images/afd.jpg',
         x: 600,
         y: 200
       },
@@ -587,12 +587,11 @@ export const networkDatasets: NetworkData[] = [
       { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
       { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
       { from: 'eike', to: 'afd', label: 'Steht nahe', type: 'steht nahe' },
-      { from: 'cdu', to: 'werteunion', label: 'Erkennt offiziell nicht an, toleriert aber', type: 'toleriert' },
       { from: 'cdu', to: 'werteunion', label: 'Mitglieder gehören an', type: 'verbunden' },
       { from: 'werteunion', to: 'cdu', label: 'Mitglieder gehören an', type: 'verbunden' },
       { from: 'friedrich-merz', to: 'cdu', label: 'Mitglied', type: 'mitglied' },
       { from: 'friedrich-merz', to: 'blackrock', label: 'vertrat Unternehmensinteressen', type: 'vertrat' },
-      { from: 'blackrock', to: 'aramco', label: 'investiert', type: 'inverstiert' },
+      { from: 'blackrock', to: 'saudi-aramco', label: 'investiert', type: 'investiert' },
       { from: 'blackrock', to: 'exxon-mobil', label: 'investiert', type: 'investiert' },
       { from: 'exxon-mobil', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
       { from: 'heartland-institute', to: 'eike', label: 'finanziert', type: 'finanziert' },
@@ -682,7 +681,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'person',
-        profileImage: 'images/016423063.jpg',
+        profileImage: 'images/afd.jpg',
         x: 900, // Rechts
         y: 350,
         
@@ -730,44 +729,70 @@ export const networkDatasets: NetworkData[] = [
   },
   {
     id: 8,
-    title: "Netzwerk 8",
+    title: "",
     nodes: [
       {
-        id: 'org-8-1',
-        name: 'Organisation 8-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Organisation',
-        type: 'organization',
-        logo: 'ORG',
-        logoColor: '#6366f1',
-        x: 300,
-        y: 200
-      },
-      {
-        id: 'person-8-1',
-        name: 'Person 8-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Person',
+        id: 'marcus-woeller',
+        name: 'Marcus Woeller',
+        role: 'Redakteur bei WELT',
+        description: 'Redakteur bei WELT',
         type: 'person',
-        profileImage: 'images/placeholder.jpg',
-        x: 600,
-        y: 200
+        profileImage: 'images/Marcus Woeller.png',
+        x: 300,
+        y: 200,
+        position: 'center'
       },
       {
-        id: 'company-8-1',
-        name: 'Firma 8-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Firma',
+        id: 'die-welt',
+        name: 'Die Welt',
+        role: 'Deutsche Zeitung',
+        description: 'Eine überregionale deutsche Tageszeitung',
+        type: 'person',
+        profileImage: 'images/Design-ohne-Titel-66-585x585.png',
+        x: 600,
+        y: 200,
+      },
+      {
+        id: 'axel-springer',
+        name: 'Axel Springer SE',
+        role: 'Deutscher Medienkonzern',
+        description: 'Ein Medienkonzern mit mehreren multimedialen Marken, wie BILD, Welt, Business Insider, Politico, Nius, etc.',
         type: 'company',
-        logo: 'COMP',
-        logoColor: '#2563eb',
+        profileImage: 'images/Bildschirmfoto-2017-03-14-um-17.15.05.png',
         x: 900,
-        y: 200
+        y: 200,
+        
+      },
+      {
+        id: 'kkr',
+        name: 'KKR & Co.',
+        role: 'Kohlberg Kavis Roberts & Co. Investmentgesellschaft',
+        description: 'Investiert umfangreich in fossile Energieträger und betreibt Lobbyarbeit zum Thema Energie',
+        type: 'company',
+        profileImage: 'images/kkr_logo.jpg',
+        x: 900,
+        y: 200,
+        
+      },
+      {
+        id: 'bild',
+        name: 'Die BILD',
+        role: 'Deutsche Zeitung',
+        description: 'Eine überregionale deutsche Tageszeitung',
+        type: 'company',
+        profileImage: 'images/BILD.png',
+        x: 900,
+        y: 200,
+        
       }
     ],
     connections: [
-      { from: 'org-8-1', to: 'person-8-1', label: 'Beispiel Verbindung', type: 'mitglied' },
-      { from: 'person-8-1', to: 'company-8-1', label: 'Beispiel Verbindung', type: 'vorstand' }
+      { from: 'marcus-woeller', to: 'die-welt', label: 'Arbeitet bei', type: 'arbeitet bei' },
+      { from: 'die-welt', to: 'axel-springer', label: 'Gehört zu', type: 'gehört zu' },
+      { from: 'axel-springer', to: 'die-welt', label: 'Beeinflusst', type: 'beeinflußt' },
+      { from: 'axel-springer', to: 'bild', label: 'Beeinflusst', type: 'beeinflußt' },
+      { from: 'bild', to: 'axel-springer', label: 'Gehört zu', type: 'gehört zu' }, 
+   
     ]
   },
   {
@@ -791,8 +816,28 @@ export const networkDatasets: NetworkData[] = [
         description: 'Kein Forschungsinstitut und kein offizielles Institut der EU, leugnen ebenfalls den menschengemachten Klimawandel',
         type: 'institute',
         profileImage: 'images/eike-logo.png',
-        x: 350,
-        y: 300
+        x: 200,
+        y: 150
+      },
+      {
+        id: 'javier-milei',
+        name: 'Javier Milei',
+        role: 'Argentinischer Präsident',
+        description: 'Bekam Medaille von Hyko für sein Reformwerk',
+        type: 'person',
+        profileImage: 'images/placeholder.jpg',
+        x: 600,
+        y: 60
+      },
+      {
+        id: 'hyko',
+        name: 'Hyko-Gesellschaft',
+        role: 'Wirtschaftswissenschaftlicher Thinktank',
+        description: 'Lehnen Klimaschutzgesetze ab und sind eng verbunden mit EIKE',
+        type: 'organization',
+        profileImage: 'images/placeholder.jpg',
+        x: 900,
+        y: 100
       },
       {
         id: 'beatrix-von-storch',
@@ -833,26 +878,6 @@ export const networkDatasets: NetworkData[] = [
         profileImage: 'images/WerteUnion-Logo-Vector.svg.png',
         x: 1050,
         y: 300
-      },
-      {
-        id: 'hyko',
-        name: 'Hyko-Gesellschaft',
-        role: 'Wirtschaftswissenschaftlicher Thinktank',
-        description: 'Lehrten Klimaschutzgesetze ab und sind eng verbunden mit EIKE',
-        type: 'organization',
-        profileImage: 'images/placeholder.jpg',
-        x: 900,
-        y: 100
-      },
-      {
-        id: 'javier-milei',
-        name: 'Javier Milei',
-        role: 'Argentinischer Präsident',
-        description: 'Bekam Medaille von Hyko für sein Reformwerk',
-        type: 'person',
-        profileImage: 'images/placeholder.jpg',
-        x: 600,
-        y: 60
       }
     ],
     connections: [
@@ -861,9 +886,9 @@ export const networkDatasets: NetworkData[] = [
       { from: 'eike', to: 'beatrix-von-storch', label: 'Verbindungen', type: 'kontakt' },
       { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
       { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
-      { from: 'beatrix-von-storch', to: 'afd', label: 'Mitglied des Bundestags für die AfD', type: 'mitglied' },
-      { from: 'afd', to: 'werteunion', label: 'Start der AfD-Phase', type: 'kontakt' },
-      { from: 'hyko', to: 'eike', label: 'Lehrten Klimaschutzgesetze ab und sind eng verbunden mit EIKE', type: 'zusammenarbeit' },
+      { from: 'beatrix-von-storch', to: 'afd', label: 'Mitglied', type: 'mitglied' },
+      { from: 'afd', to: 'werteunion', label: 'Steht der AfD nahe', type: 'steht nahe' },
+      { from: 'hyko', to: 'eike', label: 'Lehnen Klimaschutzgesetze ab und sind eng verbunden mit EIKE', type: 'zusammenarbeit' },
       { from: 'javier-milei', to: 'hyko', label: 'Überreicht Medaille', type: 'auszeichnung' }
     ]
   },
@@ -956,41 +981,96 @@ export const networkDatasets: NetworkData[] = [
     title: "Netzwerk 12",
     nodes: [
       {
-        id: 'org-12-1',
-        name: 'Organisation 12-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Organisation',
+        id: 'heartland-institute',
+        name: 'The Heartland Institute',
+        role: 'US Think Tank',
+        description: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
         type: 'organization',
-        logo: 'ORG',
-        logoColor: '#6366f1',
-        x: 300,
-        y: 200
+        profileImage: 'images/heartland.jpeg',
+        x: 200,
+        y: 500
       },
       {
-        id: 'person-12-1',
-        name: 'Person 12-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Person',
+        id: 'eike',
+        name: 'EIKE',
+        role: 'Europäisches Institut für Klima und Energie',
+        description: 'Kein Forschungsinstitut und kein offizielles Institut der EU, leugnen ebenfalls den menschengemachten Klimawandel',
+        type: 'institute',
+        profileImage: 'images/eike-logo.png',
+        x: 200,
+        y: 150
+      },
+      {
+        id: 'javier-milei',
+        name: 'Javier Milei',
+        role: 'Argentinischer Präsident',
+        description: 'Bekam Medaille von Hyko für sein Reformwerk',
         type: 'person',
         profileImage: 'images/placeholder.jpg',
         x: 600,
-        y: 200
+        y: 60
       },
       {
-        id: 'company-12-1',
-        name: 'Firma 12-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Firma',
-        type: 'company',
-        logo: 'COMP',
-        logoColor: '#2563eb',
+        id: 'hyko',
+        name: 'Hyko-Gesellschaft',
+        role: 'Wirtschaftswissenschaftlicher Thinktank',
+        description: 'Lehnen Klimaschutzgesetze ab und sind eng verbunden mit EIKE',
+        type: 'organization',
+        profileImage: 'images/placeholder.jpg',
         x: 900,
-        y: 200
+        y: 100
+      },
+      {
+        id: 'beatrix-von-storch',
+        name: 'Beatrix von Storch',
+        role: 'Mitglied des Bundestags für die AfD',
+        description: 'Mitglied des Bundestags, AfD',
+        type: 'person',
+        profileImage: 'images/beatrix-von-storch.jpg',
+        x: 600,
+        y: 250
+      },
+      {
+        id: 'michael-limburg',
+        name: 'Michael Limburg',
+        role: 'Klimawandelleugner',
+        description: 'Stellvertretender Vorsitzender des Bundesfachausschusses Energie',
+        type: 'person',
+        profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
+        x: 600,
+        y: 400
+      },
+      {
+        id: 'afd',
+        name: 'AfD',
+        role: 'Rechtsextreme Partei',
+        description: 'Rechtsextreme Partei',
+        type: 'party',
+        profileImage: 'images/afd.jpg',
+        x: 850,
+        y: 300
+      },
+      {
+        id: 'werteunion',
+        name: 'Werteunion',
+        role: 'Verein rechter CDU-Politiker',
+        description: 'Verein besonders rechter CDU-Politiker, welche Klimawandel und CO2-Ausstoß leugnen',
+        type: 'organization',
+        profileImage: 'images/WerteUnion-Logo-Vector.svg.png',
+        x: 1050,
+        y: 300
       }
     ],
     connections: [
-      { from: 'org-12-1', to: 'person-12-1', label: 'Beispiel Verbindung', type: 'mitglied' },
-      { from: 'person-12-1', to: 'company-12-1', label: 'Beispiel Verbindung', type: 'vorstand' }
+      { from: 'heartland-institute', to: 'eike', label: 'finanziert', type: 'finanziert' },
+      { from: 'heartland-institute', to: 'eike', label: 'entsendet Referenten', type: 'unterstützt' },
+      { from: 'eike', to: 'beatrix-von-storch', label: 'Verbindungen', type: 'kontakt' },
+      { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
+      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
+      { from: 'beatrix-von-storch', to: 'afd', label: 'Mitglied', type: 'mitglied' },
+      { from: 'afd', to: 'werteunion', label: 'Steht der AfD nahe', type: 'steht nahe' },
+      { from: 'hyko', to: 'eike', label: 'Lehnen Klimaschutzgesetze ab und sind eng verbunden mit EIKE', type: 'zusammenarbeit' },
+      { from: 'javier-milei', to: 'hyko', label: 'Überreicht Medaille', type: 'auszeichnung' }
     ]
   },
   {
@@ -1168,7 +1248,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: 'images/016423063.jpg',
+        profileImage: 'images/afd.jpg',
         x: 900,
         y: 200
       }
@@ -1177,11 +1257,12 @@ export const networkDatasets: NetworkData[] = [
       { from: 'gebrueder-koch', to: 'koch-industries', label: 'Eigentümer', type: 'eigentümer' },
       { from: 'gebrüder-koch', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
       { from: 'koch-industries', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
-      { from: 'exxon', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
-      { from: 'acnr', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
-      { from: 'heartland-institute', to: 'eike', label: 'entsendet Referenten', type: 'unterstützt' },
-      { from: 'eike', to: 'michael-limburg', label: 'Vizepräsident', type: 'vorstand' },
-      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' }
+      { from: 'heartland-institute', to: 'eike', label: 'Entsendet Referenten', type: 'unterstützt' },
+      { from: 'eike', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
+      { from: 'afd', to: 'hyko', label: 'Mitglieder gehören an', type: 'mitglied' },
+      { from: 'hyko', to: 'eike', label: 'Lehnen Klimaschutzgesetze ab und sind eng verbunden mit EIKE', type: 'zusammenarbeit' },
+      { from: 'afd', to: 'vernunftkraft', label: 'arbeitet zusammen', type: 'zusammenarbeit' },
+      { from: 'vernunftkraft', to: 'afd', label: 'arbeitet zusammen', type: 'zusammenarbeit' }
     ]
   },
   {
@@ -1282,7 +1363,8 @@ export const networkDatasets: NetworkData[] = [
         type: 'company',
         profileImage: 'images/koch-industries.jpg',
         x: 200,
-        y: 500
+        y: 500,
+        position: 'center'
       },
       {
         id: 'gebrueder-koch',

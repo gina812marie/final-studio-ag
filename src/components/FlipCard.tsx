@@ -16,9 +16,10 @@ interface FlipCardProps {
     source?: string;
   };
   onShowNetwork: () => void;
+  hasNetwork?: boolean;
 }
 
-export default function FlipCard({ id, frontContent, backContent, onShowNetwork }: FlipCardProps) {
+export default function FlipCard({ id, frontContent, backContent, onShowNetwork, hasNetwork }: FlipCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -98,13 +99,15 @@ export default function FlipCard({ id, frontContent, backContent, onShowNetwork 
                     <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium">Faktencheck</span>
                   </button>
                   
-                  <button
-                    onClick={onShowNetwork}
-                    className="w-full sm:flex-1 bg-purple-500/30 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg flex items-center justify-center space-x-2 hover:bg-purple-500/50 transition-all duration-300 hover:scale-105"
-                  >
-                    <Network className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                    <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium">Netzwerk</span>
-                  </button>
+                  {hasNetwork && (
+                    <button
+                      onClick={onShowNetwork}
+                      className="w-full sm:flex-1 bg-purple-500/30 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg flex items-center justify-center space-x-2 hover:bg-purple-500/50 transition-all duration-300 hover:scale-105"
+                    >
+                      <Network className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium">Netzwerk</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -150,13 +153,15 @@ export default function FlipCard({ id, frontContent, backContent, onShowNetwork 
                     <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium">Zurück</span>
                   </button>
                   
-                  <button
-                    onClick={onShowNetwork}
-                    className="w-full sm:flex-1 bg-purple-500/30 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg flex items-center justify-center space-x-2 hover:bg-purple-500/50 transition-all duration-300 hover:scale-105"
-                  >
-                    <Network className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                    <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium">Netzwerk</span>
-                  </button>
+                  {hasNetwork && (
+                    <button
+                      onClick={onShowNetwork}
+                      className="w-full sm:flex-1 bg-purple-500/30 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg flex items-center justify-center space-x-2 hover:bg-purple-500/50 transition-all duration-300 hover:scale-105"
+                    >
+                      <Network className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium">Netzwerk</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

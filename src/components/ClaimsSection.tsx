@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import FlipCard from './FlipCard';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { claimsData } from '../data/claimsData';
+import { networkDatasets } from '../data/networkData';
 
 interface ClaimsSectionProps {
   onBack: () => void;
@@ -107,20 +108,29 @@ export default function ClaimsSection({ onBack, onShowNetwork, selectedClaimId }
             className="flex overflow-x-auto scrollbar-hide gap-4 sm:gap-6 lg:gap-8 xl:gap-10 px-4 sm:px-8 lg:px-16 xl:px-20 py-4 sm:py-6 lg:py-8"
             style={{ scrollSnapType: 'x mandatory' }}
           >
-            {claimsData.map((claim) => (
-              <div
-                key={claim.id}
-                className="flex-shrink-0 w-[280px] sm:w-[400px] md:w-[450px] lg:w-[480px] xl:w-[520px] 2xl:w-[560px]"
-                style={{ scrollSnapAlign: 'center' }}
-              >
-                <FlipCard
-                  id={claim.id.toString()}
-                  frontContent={claim.frontContent}
-                  backContent={claim.backContent}
-                  onShowNetwork={() => onShowNetwork(claim.id)}
-                />
-              </div>
-            ))}
+            {claimsData.map((claim) => {
+              const hasNetwork =
+                (claim.id !== 10 && claim.id !== 11) &&
+                typeof claim.networkId === 'number' &&
+                networkDatasets.some(
+                  (net) => net.id === claim.networkId && net.nodes && net.nodes.length > 0
+                );
+              return (
+                <div
+                  key={claim.id}
+                  className="flex-shrink-0 w-[280px] sm:w-[400px] md:w-[450px] lg:w-[480px] xl:w-[520px] 2xl:w-[560px]"
+                  style={{ scrollSnapAlign: 'center' }}
+                >
+                  <FlipCard
+                    id={claim.id.toString()}
+                    frontContent={claim.frontContent}
+                    backContent={claim.backContent}
+                    onShowNetwork={() => onShowNetwork(claim.id)}
+                    hasNetwork={hasNetwork}
+                  />
+                </div>
+              );
+            })}
           </div>
 
           {/* Dots Indicator */}

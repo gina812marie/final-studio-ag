@@ -20,6 +20,7 @@ interface D3Node extends NetworkNode {
 interface D3Link extends NetworkConnection {
   source: D3Node;
   target: D3Node;
+  _distance?: number;
 }
 
 // Funktion zur Überprüfung und Erzwingung der Mindestdistanz
@@ -154,6 +155,17 @@ const generateSpacedLayout = (nodes: NetworkNode[], width: number, height: numbe
   return positions;
 };
 
+// Hilfsfunktion: Schätze die benötigte Link-Länge anhand der Label-Länge
+function getLinkDistance(link: D3Link) {
+  // Basislänge
+  const base = 420;
+  // Schätze die Textbreite (ca. 9px pro Zeichen, plus Padding)
+  const labelLength = link.label ? link.label.length : 0;
+  const estimatedTextWidth = labelLength * 9 + 60; // 60px Puffer
+  // Mindestens base, maximal 700
+  return Math.max(base, Math.min(estimatedTextWidth, 700));
+}
+
 export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNetworkGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -225,63 +237,76 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
       })
       .filter((link): link is D3Link => link !== null);
 
-    // Erzwinge Mindestdistanz bei der Initialisierung
-    enforceMinimumDistance(nodes, minDistance);
+    // 1. Initialisiere für alle Links eine property _distance
+    links.forEach(link => {
+      link._distance = 420; // Default
+    });
 
-    // Erstelle Simulation mit starken Kräften für Mindestdistanz
+    // 2. Hilfsfunktion: Miss die tatsächliche Textbreite im SVG
+    function measureLabelWidths() {
+      // Temporäres, unsichtbares SVG zum Messen
+      const tempSvg = d3.select(document.body).append("svg").attr("style", "position:absolute;left:-9999px;top:-9999px;visibility:hidden");
+      links.forEach(link => {
+        const textElem = tempSvg.append("text")
+          .attr("font-size", "15px")
+          .attr("font-weight", "700")
+          .text(link.label);
+        const bbox = (textElem.node() as SVGTextElement).getBBox();
+        link._distance = Math.max(420, bbox.width + 100); // 100px Puffer
+        textElem.remove();
+      });
+      tempSvg.remove();
+    }
+    measureLabelWidths();
+
+    // 3. Erstelle Simulation mit individuellen Link-Längen
     const simulation = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links)
         .id((d: any) => d.id)
-        .distance(400)
-        .strength(0.4)
+        .distance((d: any) => d._distance || 420)
+        .strength(0.5)
       )
       .force("charge", d3.forceManyBody()
-        .strength(-5000)
+        .strength(-9000)
         .distanceMin(minDistance)
-        .distanceMax(800)
+        .distanceMax(1000)
       )
       .force("collision", d3.forceCollide()
-        .radius(minDistance / 2) // Kollisionsradius = halbe Mindestdistanz
-        .strength(1.0)
-        .iterations(3) // Mehrere Iterationen für bessere Kollisionsvermeidung
+        .radius(200) // Noch größerer Kollisionsradius
+        .strength(1.5)
+        .iterations(8) // Noch mehr Iterationen
       )
-      .force("center", d3.forceCenter(width / 2, height / 2).strength(0.1))
-      // SPEZIELLE KRAFT: Halte Center-Nodes in der Mitte
+      .force("center", d3.forceCenter(width / 2, height / 2).strength(0.12))
       .force("centerNodes", () => {
         data.nodes.forEach((nodeData, i) => {
           if (nodeData.position === 'center') {
             const node = nodes[i];
             if (node) {
-              // Starke Kraft zur Mitte für Center-Nodes
               const centerX = width / 2;
               const centerY = height / 2;
-              
               if (data.nodes.filter(n => n.position === 'center').length === 1) {
-                // Einzelner Center-Node: Exakt zentrieren
                 const dx = centerX - node.x!;
                 const dy = centerY - node.y!;
-                node.vx! += dx * 0.1; // Starke Zentrierung
-                node.vy! += dy * 0.1;
+                node.vx! += dx * 0.12;
+                node.vy! += dy * 0.12;
               } else {
-                // Mehrere Center-Nodes: Kreisförmig um Zentrum
                 const centerNodes = data.nodes.filter(n => n.position === 'center');
                 const nodeIndex = centerNodes.findIndex(n => n.id === nodeData.id);
-                const radius = Math.max(minDistance * 0.8, 180);
+                const radius = Math.max(minDistance * 0.9, 200);
                 const angle = (nodeIndex / centerNodes.length) * 2 * Math.PI;
                 const targetX = centerX + radius * Math.cos(angle);
                 const targetY = centerY + radius * Math.sin(angle);
-                
                 const dx = targetX - node.x!;
                 const dy = targetY - node.y!;
-                node.vx! += dx * 0.08; // Moderate Kraft zur Zielposition
-                node.vy! += dy * 0.08;
+                node.vx! += dx * 0.09;
+                node.vy! += dy * 0.09;
               }
             }
           }
         });
       })
-      .alpha(0.8)
-      .alphaDecay(0.02);
+      .alpha(1.0)
+      .alphaDecay(0.01); // Längere Simulation
 
     // Create container groups
     const container = svg.append("g");
@@ -361,11 +386,46 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
       .attr("fill", "#ffffff")
       .attr("opacity", 0.9);
 
-    // Create links
+    // Hilfsfunktion: Finde alle Verbindungen mit exakt gleichem from→to
+    function getParallelLinks(link: D3Link, allLinks: D3Link[]) {
+      return allLinks.filter(l => l.source.id === link.source.id && l.target.id === link.target.id);
+    }
+    function getParallelLinkIndex(link: D3Link, allLinks: D3Link[]) {
+      const group = getParallelLinks(link, allLinks);
+      // Vergleiche nach Label+Typ, damit auch gleiche Verbindungen korrekt gezählt werden
+      return group.findIndex(l => l.label === link.label && l.type === link.type);
+    }
+
+    // Ersetze die Linien durch gebogene Pfade (Bezier-Kurven)
     const link = container.append("g")
-      .selectAll("line")
+      .selectAll("path")
       .data(links)
-      .enter().append("line")
+      .enter().append("path")
+      .attr("d", function(d) {
+        const x1 = d.source.x!;
+        const y1 = d.source.y!;
+        const x2 = d.target.x!;
+        const y2 = d.target.y!;
+        // Parallele Verbindungen: Offset für Bogen
+        const parallels = getParallelLinks(d, links);
+        const parallelIndex = getParallelLinkIndex(d, links);
+        const parallelCount = parallels.length;
+        // Bogenrichtung: abwechselnd nach oben/unten
+        const direction = parallelIndex % 2 === 0 ? 1 : -1;
+        // Bögen weiter auseinanderziehen
+        const curveOffset = 100 + 60 * Math.floor(parallelIndex / 2); // mehr Abstand für parallele Kanten
+        // Senkrechte Richtung zur Linie
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const len = Math.sqrt(dx * dx + dy * dy) || 1;
+        const nx = -dy / len;
+        const ny = dx / len;
+        // Kontrollpunkt für Bezier-Kurve
+        const cx = (x1 + x2) / 2 + nx * curveOffset * direction;
+        const cy = (y1 + y2) / 2 + ny * curveOffset * direction;
+        return `M${x1},${y1} Q${cx},${cy} ${x2},${y2}`;
+      })
+      .attr("fill", "none")
       .attr("stroke", "#ffffff")
       .attr("stroke-width", 5)
       .attr("stroke-opacity", 0.9)
@@ -389,7 +449,6 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
 
     linkLabels.append("text")
       .attr("text-anchor", "middle")
-      .attr("dy", "0.35em")
       .attr("font-size", "15px")
       .attr("font-weight", "700")
       .attr("fill", "#7c3aed")
@@ -572,7 +631,8 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
           organization: "Organisation",
           company: "Unternehmen",
           institute: "Institut",
-          party: "Partei"
+          party: "Partei",
+          ministerium: "Ministerium"
         };
         return typeLabels[d.type] || d.type;
       });
@@ -609,23 +669,82 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
       // (Nur bei automatischer Simulation, nicht bei manuellem Ziehen)
 
       link
-        .attr("x1", d => d.source.x!)
-        .attr("y1", d => d.source.y!)
-        .attr("x2", d => d.target.x!)
-        .attr("y2", d => d.target.y!);
-
-      linkLabels
-        .attr("transform", d => {
-          const x = (d.source.x! + d.target.x!) / 2;
-          const y = (d.source.y! + d.target.y!) / 2;
-          return `translate(${x},${y})`;
+        .attr("d", function(d) {
+          const x1 = d.source.x!;
+          const y1 = d.source.y!;
+          const x2 = d.target.x!;
+          const y2 = d.target.y!;
+          // Parallele Verbindungen: Offset für Bogen
+          const parallels = getParallelLinks(d, links);
+          const parallelIndex = getParallelLinkIndex(d, links);
+          const parallelCount = parallels.length;
+          const direction = parallelIndex % 2 === 0 ? 1 : -1;
+          const curveOffset = 100 + 60 * Math.floor(parallelIndex / 2);
+          const dx = x2 - x1;
+          const dy = y2 - y1;
+          const len = Math.sqrt(dx * dx + dy * dy) || 1;
+          const nx = -dy / len;
+          const ny = dx / len;
+          // Kontrollpunkt für Bezier-Kurve
+          const cx = (x1 + x2) / 2 + nx * curveOffset * direction;
+          const cy = (y1 + y2) / 2 + ny * curveOffset * direction;
+          return `M${x1},${y1} Q${cx},${cy} ${x2},${y2}`;
         });
 
-      linkLabels.selectAll("rect")
-        .attr("width", 120) // Fixed width as fallback
-        .attr("height", 28)
-        .attr("x", -60) // Center the rect
-        .attr("y", -14);
+      // Platziere das Label auf der Kurve (etwas weiter von den Pfeilspitzen entfernt)
+      linkLabels
+        .attr("transform", function(d) {
+          const x1 = d.source.x!;
+          const y1 = d.source.y!;
+          const x2 = d.target.x!;
+          const y2 = d.target.y!;
+          // Parallele Verbindungen: Offset für Bogen
+          const parallels = getParallelLinks(d, links);
+          const parallelIndex = getParallelLinkIndex(d, links);
+          const parallelCount = parallels.length;
+          const direction = parallelIndex % 2 === 0 ? 1 : -1;
+          const curveOffset = 100 + 60 * Math.floor(parallelIndex / 2);
+          const dx = x2 - x1;
+          const dy = y2 - y1;
+          const len = Math.sqrt(dx * dx + dy * dy) || 1;
+          const nx = -dy / len;
+          const ny = dx / len;
+          // Kontrollpunkt für Bezier-Kurve
+          const cx = (x1 + x2) / 2 + nx * curveOffset * direction;
+          const cy = (y1 + y2) / 2 + ny * curveOffset * direction;
+          // Platziere das Label bei t=0.35 für gerade Indizes, t=0.65 für ungerade (abwechselnd)
+          const t = parallelIndex % 2 === 0 ? 0.35 : 0.65;
+          let bx = (1 - t) * (1 - t) * x1 + 2 * (1 - t) * t * cx + t * t * x2;
+          let by = (1 - t) * (1 - t) * y1 + 2 * (1 - t) * t * cy + t * t * y2;
+          // Füge vertikalen Abstand zwischen parallelen Labels hinzu
+          const labelGap = 12;
+          const offset = (parallelIndex - (parallelCount - 1) / 2) * labelGap;
+          bx += nx * offset;
+          by += ny * offset;
+          // Optional: Leichte Rotation entlang der Kurve, aber immer lesbar
+          let angle = Math.atan2(
+            2 * (1 - t) * (cy - y1) + 2 * t * (y2 - cy),
+            2 * (1 - t) * (cx - x1) + 2 * t * (x2 - cx)
+          ) * 180 / Math.PI;
+          // Drehe das Label um 180°, wenn es auf dem Kopf stehen würde
+          if (angle > 90) angle -= 180;
+          if (angle < -90) angle += 180;
+          return `translate(${bx},${by}) rotate(${angle})`;
+        });
+
+      // Dynamische Größe für Label-Rects basierend auf Textbreite
+      linkLabels.each(function(d, i) {
+        const textElem = d3.select(this).select("text").node();
+        if (textElem && textElem instanceof SVGTextElement) {
+          const bbox = textElem.getBBox();
+          const padding = 32; // 16px links/rechts
+          d3.select(this).select("rect")
+            .attr("width", bbox.width + padding)
+            .attr("height", bbox.height + 16) // 8px oben/unten
+            .attr("x", -(bbox.width + padding) / 2)
+            .attr("y", -(bbox.height + 16) / 2);
+        }
+      });
 
       nodeGroups.attr("transform", d => `translate(${d.x},${d.y})`);
     });
@@ -770,7 +889,8 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
                     organization: "🏢 Organisation", 
                     company: "🏭 Unternehmen",
                     institute: "🎓 Institut",
-                    party: "🗳️ Partei"
+                    party: "🗳️ Partei",
+                    ministerium: "🏛️ Ministerium"
                   };
                   return typeLabels[hoveredNode.type] || hoveredNode.type;
                 })()}

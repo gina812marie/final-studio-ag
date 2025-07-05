@@ -1,6 +1,7 @@
 // Zentrale Datei für alle Behauptungen und deren Inhalte
 export interface ClaimData {
   id: number;
+  networkId?: number;
   frontContent: {
     title: string;
     subtitle?: string;
@@ -18,6 +19,7 @@ export interface ClaimData {
 export const claimsData: ClaimData[] = [
   {
     id: 1,
+    networkId: 1,
     frontContent: {
       title: 'Es gibt einen Zwang zu Wärmepumpen!',
       subtitle: '"Es muss Schluss sein mit dem Zwang zur Wärmepumpe."',
@@ -33,6 +35,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 2,
+    networkId: 2,
     frontContent: {
       title: 'CO₂-Wert am Rekordtief',
       subtitle: 'Der heutige CO₂-Wert liegt nahe einem Rekordtief, nicht aber ein gefährliches Rekordhoch.',
@@ -48,6 +51,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 3,
+    networkId: 3,
     frontContent: {
       title: 'Reißt die Windkrafträder ab!',
       subtitle: '"Und ich kann Ihnen sagen, wenn wir am Ruder sind, wir reißen alle Windkraftwerke nieder. Nieder mit diesen Windmühlen der Schande."',
@@ -63,6 +67,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 4,
+    networkId: 4,
     frontContent: {
       title: 'Extremwetter werden nicht mehr!',
       subtitle: '"Keiner der gängigen Extremwetter-Typen in Deutschland hat bisher die natürliche Schwankungsbreite des Klimasystems verlassen."',
@@ -78,6 +83,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 5,
+    networkId: 5,
     frontContent: {
       title: 'Windkrafträder erzeugen weniger Energie als Kraftwerke',
       subtitle: '"Windenergie benötigt viel Material, erzeugt aber wenig Energie im Vergleich zu Kraftwerken. Nach wenigen Jahrzehnten hat ein Windrad seine Lebensdauer erreicht und muss aufwendig rückgebaut werden."',
@@ -93,6 +99,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 6,
+    networkId: 6,
     frontContent: {
       title: 'Ein wärmeres Klima ist vorteilhaft',
       subtitle: '"Ein wärmeres Klima war schon immer ein Segen für den Menschen."',
@@ -108,6 +115,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 7,
+    networkId: 7,
     frontContent: {
       title: 'Mehr CO₂ = mehr Essen',
       subtitle: 'Mehr Kohlendioxid bedeutet mehr Nahrung. Entgegen der weit verbreiteten Berichterstattung ist Kohlendioxid lebensnotwendig für das Leben auf der Erde. Da die Atmosphäre inzwischen mit Kohlendioxid gesättigt ist, führt ein weiterer Anstieg dazu, dass weltweit mehr Nahrungsmittel produziert werden können.',
@@ -123,6 +131,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 8,
+    networkId: 8,
     frontContent: {
       title: 'Das Feuer um die Wärmepumpe',
       subtitle: '"Die Wärmepumpe ist die letzte Entfremdung des Menschen vom Feuer."',
@@ -137,6 +146,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 9,
+    networkId: 9,
     frontContent: {
       title: 'Deutscher CO₂-Ausstoß global bedeutungslos',
       subtitle: '"Auf den weltweiten CO2 Ausstoß hätte eine Senkung der deutschen Werte gar keinen Einfluss"',
@@ -152,6 +162,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 10,
+    networkId: 10,
     frontContent: {
       title: 'Deutschland in der Dunkelflaute',
       subtitle: '"Deutschland befindet sich inmitten einer Dunkelflaute. Zwischen 7 und 8 Uhr konsumierte Deutschland knapp 64 Gigawattstunden Strom. Aber was liefert uns das Land selbst? Nur rund 49 Gigawattstunden – ein klares Minus von fast 25 Prozent!"',
@@ -167,6 +178,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 11,
+    networkId: 11,
     frontContent: {
       title: 'Fünf Meter Schnee bei Klimaerwärmung?',
       subtitle: '"Dass es in Japan bis zu fünf Meter Schnee gab, widerspreche dem menschengemachten Klimawandel."',
@@ -182,6 +194,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 12,
+    networkId: 12,
     frontContent: {
       title: 'Die Sonne ist Schuld',
       subtitle: '"Dann sollten wir der Sonne erklären, dass Sie nicht so viel scheinen soll. (...) Wir sollten die Sonne verklagen."',
@@ -197,6 +210,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 13,
+    networkId: 13,
     frontContent: {
       title: 'Solarparks verbrennen Vögel',
       subtitle: '"Über Solarparks entsteht so große Hitze, dass Vögel und Insekten sterben und der Boden kilometerweit austrocknet."',
@@ -212,6 +226,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 14,
+    networkId: 14,
     frontContent: {
       title: 'Die Erde wird grüner!',
       subtitle: 'Dank des Klimawandels wird die Erde Grüner. Mehr CO2 in der Atmosphere unterstützt das Pflanzenwachstum.',
@@ -227,6 +242,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 15,
+    networkId: 15,
     frontContent: {
       title: 'Atomkraft ist CO₂-neutral',
       subtitle: '"Nuclear energy is carbon free – Atomkraft ist CO₂-neutral"',
@@ -242,6 +258,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 16,
+    networkId: 16,
     frontContent: {
       title: 'Die Mittelalterliche Warmzeit',
       subtitle: '"Im Mittelalter war es wärmer als heute."',
@@ -257,6 +274,7 @@ export const claimsData: ClaimData[] = [
   },
   {
     id: 17,
+    networkId: 17,
     frontContent: {
       title: 'Der Klimaschwindel der Medien!',
       subtitle: '"Medienberichte dazu, dass sich mehrere Länder und Kontinente schneller als der Rest der Welt erwärmten, belegten einen "Klimaschwindel""',
@@ -268,21 +286,6 @@ export const claimsData: ClaimData[] = [
       title: 'Landflächen erwärmen sich schneller als Ozeane',
       content: 'Falsch. Wissenschaftliche Daten zeigen eindeutig, dass Deutschland sich überdurchschnittlich stark erwärmt. Laut Correctiv, dem DWD und der NASA steigen die Temperaturen hierzulande schneller als im globalen Durchschnitt.\n\nDer Grund: Landflächen erwärmen sich schneller als Ozeane, und Europa liegt fast vollständig auf Landmasse.\n\nDie Aussage verkennt grundlegende physikalische Zusammenhänge und ignoriert jahrzehntelange Klimaforschung. Auch Extremwetter, Gletscherschmelze und Hitzerekorde in Deutschland belegen die Realität des Temperaturanstiegs.\n\nDer Vorwurf eines Medien-Hypes ist daher unbegründet – der Klimawandel ist heute schon längst angekommen.',
       source: 'Correctiv, Klimawandel: Warum sich mehrere Regionen schneller als der Rest der Welt erwärmen'
-    }
-  },
-  // Weitere 1 Platzhalter-Claim
-  {
-    id: 18,
-    frontContent: {
-      title: 'Behauptung 18',
-      subtitle: '"Irreführende Aussage 18 der Fossilfuellobby"',
-      description: 'Hier können Sie die Beschreibung für Behauptung 18 einfügen. Bearbeiten Sie einfach die claimsData.ts Datei und fügen Sie echte Inhalte hinzu.',
-      image: `${import.meta.env.BASE_URL}images/claim-18.jpg` // Platzhalter - ersetzen Sie mit echten Bildern
-    },
-    backContent: {
-      title: 'Faktencheck 18',
-      content: 'Hier steht der wissenschaftlich fundierte Faktencheck für Behauptung 18. Ersetzen Sie diesen Text mit echten Fakten und Quellen.',
-      source: 'Quelle 18: Wissenschaftliche Studien und Faktenchecks'
     }
   }
 ];
