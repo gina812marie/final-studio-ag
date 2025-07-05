@@ -288,7 +288,7 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
     
     // Add zoom behavior - OHNE Beschränkungen
     const zoom = d3.zoom<SVGSVGElement, unknown>()
-      .scaleExtent([0.1, 5]) // Erweiterte Zoom-Range
+      .scaleExtent([window.innerWidth < 640 ? 0.2 : 0.1, 5])
       .on("zoom", (event) => {
         container.attr("transform", event.transform);
       });
@@ -449,16 +449,20 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
         }));
 
     // Add node backgrounds
+    const nodeRectWidth = window.innerWidth < 640 ? 180 : window.innerWidth < 1024 ? 220 : 280;
+    const nodeRectHeight = window.innerWidth < 640 ? 90 : window.innerWidth < 1024 ? 120 : 160;
+    const nodeCircleRadius = window.innerWidth < 640 ? 28 : window.innerWidth < 1024 ? 34 : 40;
+
     nodeGroups.append("rect")
-      .attr("width", 280)
-      .attr("height", 160)
-      .attr("x", -140)
-      .attr("y", -80)
-      .attr("rx", 20)
-      .attr("ry", 20)
+      .attr("width", nodeRectWidth)
+      .attr("height", nodeRectHeight)
+      .attr("x", -nodeRectWidth/2)
+      .attr("y", -nodeRectHeight/2)
+      .attr("rx", 16)
+      .attr("ry", 16)
       .attr("fill", "white")
       .attr("stroke", "#e5e7eb")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .style("filter", "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2))");
 
     // Add profile images, logos, or fallback initials
@@ -482,7 +486,7 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
         group.append("circle")
           .attr("cx", 0)
           .attr("cy", -30)
-          .attr("r", 40)
+          .attr("r", nodeCircleRadius)
           .attr("fill", `url(#profile-${d.id})`)
           .attr("stroke", "white")
           .attr("stroke-width", 5);
@@ -491,7 +495,7 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
         group.append("circle")
           .attr("cx", 0)
           .attr("cy", -30)
-          .attr("r", 40)
+          .attr("r", nodeCircleRadius)
           .attr("fill", d.logoColor || "#6366f1")
           .attr("stroke", "white")
           .attr("stroke-width", 5);
@@ -516,17 +520,17 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
         group.append("circle")
           .attr("cx", 0)
           .attr("cy", -30)
-          .attr("r", 40)
+          .attr("r", nodeCircleRadius)
           .attr("fill", "#a5b4fc") // Lila als Fallback
           .attr("stroke", "white")
           .attr("stroke-width", 5);
         group.append("text")
           .attr("x", 0)
-          .attr("y", -20)
+          .attr("y", nodeRectHeight/2 - 55)
           .attr("text-anchor", "middle")
-          .attr("font-size", "22px")
+          .attr("font-size", window.innerWidth < 640 ? "14px" : window.innerWidth < 1024 ? "16px" : "18px")
           .attr("font-weight", "bold")
-          .attr("fill", "white")
+          .attr("fill", "#1f2937")
           .text(initials);
       }
     });
@@ -534,9 +538,9 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
     // Add node names
     nodeGroups.append("text")
       .attr("x", 0)
-      .attr("y", 25)
+      .attr("y", nodeRectHeight/2 - 55)
       .attr("text-anchor", "middle")
-      .attr("font-size", "18px")
+      .attr("font-size", window.innerWidth < 640 ? "14px" : window.innerWidth < 1024 ? "16px" : "18px")
       .attr("font-weight", "bold")
       .attr("fill", "#1f2937")
       .text(d => d.name.length > 18 ? d.name.substring(0, 18) + "..." : d.name);
@@ -544,7 +548,7 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
     // Add node roles
     nodeGroups.append("text")
       .attr("x", 0)
-      .attr("y", 45)
+      .attr("y", nodeRectHeight/2 - 35)
       .attr("text-anchor", "middle")
       .attr("font-size", "14px")
       .attr("fill", "#6b7280")
@@ -553,7 +557,7 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
     // Add node type indicator
     nodeGroups.append("text")
       .attr("x", 0)
-      .attr("y", 65)
+      .attr("y", nodeRectHeight/2 - 15)
       .attr("text-anchor", "middle")
       .attr("font-size", "12px")
       .attr("fill", "#9ca3af")
