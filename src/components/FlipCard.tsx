@@ -115,22 +115,23 @@ export default function FlipCard({ id, frontContent, backContent, onShowNetwork 
         <div className="absolute inset-0 backface-hidden rotate-y-180">
           <div className="w-full h-full bg-gradient-to-br from-purple-700 to-purple-800 rounded-xl sm:rounded-2xl shadow-2xl border border-purple-400/20 overflow-hidden hover:shadow-purple-500/25 transition-all duration-300 group-hover:scale-105">
             <div className="p-4 sm:p-6 lg:p-8 xl:p-10 flex flex-col h-full">
-              {/* Content section - flexible space */}
-              <div className="flex-1 flex flex-col space-y-4 sm:space-y-6 lg:space-y-8">
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight flex-shrink-0">
+              {/* Header - always visible */}
+              <div className="flex-shrink-0 mb-4 sm:mb-6 lg:mb-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight">
                   {backContent.title}
                 </h3>
-                
-                <div className="flex-1 overflow-y-auto">
-                  <div className="prose prose-invert max-w-none">
-                    <div className="text-white/90 leading-relaxed text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl whitespace-pre-line">
-                      {backContent.content}
-                    </div>
+              </div>
+              
+              {/* Scrollable content area */}
+              <div className="flex-1 min-h-0 overflow-y-auto mb-4 sm:mb-6 lg:mb-8">
+                <div className="prose prose-invert max-w-none">
+                  <div className="text-white/90 leading-relaxed text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl whitespace-pre-line">
+                    {backContent.content}
                   </div>
                 </div>
                 
                 {backContent.source && (
-                  <div className="pt-3 sm:pt-4 lg:pt-6 border-t border-white/20 flex-shrink-0">
+                  <div className="pt-3 sm:pt-4 lg:pt-6 border-t border-white/20 mt-4 sm:mt-6">
                     <p className="text-white/70 text-xs sm:text-sm lg:text-base">
                       <span className="font-semibold">Quelle:</span> {backContent.source}
                     </p>
@@ -138,8 +139,8 @@ export default function FlipCard({ id, frontContent, backContent, onShowNetwork 
                 )}
               </div>
               
-              {/* Action buttons - always at bottom */}
-              <div className="flex-shrink-0 pt-4 sm:pt-6 lg:pt-8">
+              {/* Action buttons - always at bottom and visible */}
+              <div className="flex-shrink-0">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 lg:gap-6">
                   <button
                     onClick={handleFlip}

@@ -198,11 +198,32 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
       y: spacedPositions[node.id]?.y || (150 + Math.random() * (height - 300))
     }));
     
-    const links: D3Link[] = data.connections.map(conn => ({
-      ...conn,
-      source: nodes.find(n => n.id === conn.from)!,
-      target: nodes.find(n => n.id === conn.to)!
-    }));
+    // Create links with validation to prevent "node not found" errors
+    const links: D3Link[] = data.connections
+      .map(conn => {
+        const sourceNode = nodes.find(n => n.id === conn.from);
+        const targetNode = nodes.find(n => n.id === conn.to);
+        
+        // Only create link if both source and target nodes exist
+        if (sourceNode && targetNode) {
+          return {
+            ...conn,
+            source: sourceNode,
+            target: targetNode
+          };
+        }
+        
+        // Log warning for missing nodes
+        if (!sourceNode) {
+          console.warn(`Node not found for connection source: ${conn.from}`);
+        }
+        if (!targetNode) {
+          console.warn(`Node not found for connection target: ${conn.to}`);
+        }
+        
+        return null;
+      })
+      .filter((link): link is D3Link => link !== null);
 
     // Erzwinge Mindestdistanz bei der Initialisierung
     enforceMinimumDistance(nodes, minDistance);
@@ -440,12 +461,12 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
       .attr("stroke-width", 3)
       .style("filter", "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2))");
 
-    // Add profile images or logos
+    // Add profile images, logos, or fallback initials
     nodeGroups.each(function(d) {
       const group = d3.select(this);
       
-      if (d.type === 'person' && d.profileImage) {
-        // Add circular profile image
+      if (d.profileImage) {
+        // Add circular profile image for any node with profileImage
         group.append("defs")
           .append("pattern")
           .attr("id", `profile-${d.id}`)
@@ -484,6 +505,29 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
           .attr("font-weight", "bold")
           .attr("fill", "white")
           .text(d.logo);
+      } else {
+        // Fallback: colored circle with initials
+        const initials = d.name
+          .split(' ')
+          .map(word => word[0])
+          .join('')
+          .substring(0, 2)
+          .toUpperCase();
+        group.append("circle")
+          .attr("cx", 0)
+          .attr("cy", -30)
+          .attr("r", 40)
+          .attr("fill", "#a5b4fc") // Lila als Fallback
+          .attr("stroke", "white")
+          .attr("stroke-width", 5);
+        group.append("text")
+          .attr("x", 0)
+          .attr("y", -20)
+          .attr("text-anchor", "middle")
+          .attr("font-size", "22px")
+          .attr("font-weight", "bold")
+          .attr("fill", "white")
+          .text(initials);
       }
     });
 
@@ -570,15 +614,9 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
         });
 
       linkLabels.selectAll("rect")
-        .attr("width", function(d) {
-          const textWidth = (this.nextSibling as SVGTextElement)?.getBBox().width || 0;
-          return textWidth + 24;
-        })
+        .attr("width", 120) // Fixed width as fallback
         .attr("height", 28)
-        .attr("x", function(d) {
-          const textWidth = (this.nextSibling as SVGTextElement)?.getBBox().width || 0;
-          return -(textWidth + 24) / 2;
-        })
+        .attr("x", -60) // Center the rect
         .attr("y", -14);
 
       nodeGroups.attr("transform", d => `translate(${d.x},${d.y})`);

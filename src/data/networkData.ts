@@ -95,7 +95,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Amerikanischer konservativer Think Tank',
         description: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
         type: 'organization',
-        profileImage: `${import.meta.env.BASE_URL}public\images\heartland.jpeg`,
+        profileImage: `${import.meta.env.BASE_URL}images/heartland.jpeg`,
         x: 900,
         y: 200
       },
@@ -105,7 +105,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanisches Unternehmen',
         description: 'Weltgrößtes privates Kohlebergbauunternehmen',
         type: 'company',
-        profileImage: `${import.meta.env.BASE_URL}public\images\Peabody.jpeg`,
+        profileImage: `${import.meta.env.BASE_URL}images/Peabody.jpeg`,
         x: 900,
         y: 200
       },
@@ -115,7 +115,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanische Industrielle',
         description: 'Charles und David Koch stehen Koch Industries vor und stecken viel Geld in die US-Politik, ind Kandidaten, Verbände und Think Tanks',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}public\images\kochbrueder-mit-bu.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/kochbrueder-mit-bu.jpg`,
         x: 900,
         y: 200
       },
@@ -125,7 +125,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanische Unternehmen',
         description: 'Koch Industries ist ein US-amerikanisches Unternehmen im Bereich der fossilen Rohstoffgewinnung',
         type: 'company',
-        profileImage: `${import.meta.env.BASE_URL}public/images/koch-industries.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/koch-industries.jpg`,
         x: 900,
         y: 200
       },
@@ -165,7 +165,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
         description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/michael-limburg-2017-orig_orig.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/afd.jpg`,
         x: 900,
         y: 200
       },
@@ -175,7 +175,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: `${import.meta.env.BASE_URL}images/016423063.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/afd.jpg`,
         x: 900,
         y: 200
       }
@@ -213,7 +213,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
         description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/michael-limburg-2017-orig_orig.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/afd.jpg`,
         x: 350,
         y: 500
       },
@@ -223,7 +223,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: `${import.meta.env.BASE_URL}images/afd_logo.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/afd.jpg`,
         x: 600,
         y: 550
       },
@@ -328,7 +328,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
         description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/michael-limburg-2017-orig_orig.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/afd.jpg`,
         x: 350,
         y: 500
       },
@@ -368,7 +368,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: `${import.meta.env.BASE_URL}images/016423063.jpg`,
+        profileImage: `${import.meta.env.BASE_URL}images/afd.jpg`,
         x: 900,
         y: 200
       }
@@ -376,16 +376,13 @@ export const networkDatasets: NetworkData[] = [
     connections: [
       { from: 'thomas-straubhaar', to: 'friedreich-neumann-stiftung', label: 'Kuratoriumsmitglied', type: 'mitglied' },
       { from: 'gebrueder-koch', to: 'koch-industries', label: 'Eigentümer', type: 'eigentümer' },
-      { from: 'gebrüder-koch', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
+      { from: 'gebrueder-koch', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
       { from: 'thomas-straubhaar', to: 'eike', label: 'Mitglied des Beirats von EIKE', type: 'mitglied' },
-      { from: 'thomas-straubhaar', to: 'friedreich-neumann-stiftung', label: 'Kuratoriumsmitglied', type: 'mitglied' },
       { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
       { from: 'heartland-institute', to: 'eike', label: 'finanziert', type: 'finanziert' },
       { from: 'heartland-institute', to: 'eike', label: 'entsendet Referenten', type: '' },
       { from: 'eike', to: 'heartland-institute', label: 'entsendet Referenten', type: '' },
-      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
-      { from: 'william-happer', to: 'co2-coalition', label: 'Gründungsmitglied', type: 'vorstand' },
-      { from: 'peabody-energy', to: 'william-happer', label: 'finanziert', type: 'finanziert' }
+      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' }
     ]
   },
   {

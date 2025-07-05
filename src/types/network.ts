@@ -16,7 +16,7 @@ export interface NetworkConnection {
   from: string;
   to: string;
   label: string;
-  type: 'finanziert' | 'mitglied' | 'unterstützt' | 'verbreitet' | 'zitiert' | 'vorstand' | 'lobbyverband';
+  type: 'finanziert' | 'mitglied' | 'unterstützt' | 'verbreitet' | 'zitiert' | 'vorstand' | 'lobbyverband' | 'eigentümer' | '';
 }
 
 export interface NetworkData {
