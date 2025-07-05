@@ -3,7 +3,7 @@ export interface NetworkNode {
   name: string;
   role: string;
   description: string;
-  type: 'person' | 'organization' | 'institute' | 'party' | 'company';
+  type: 'person' | 'organization' | 'institute' | 'party' | 'company' | 'ministerium';
   profileImage?: string;
   logo?: string;
   logoColor?: string;
@@ -16,7 +16,26 @@ export interface NetworkConnection {
   from: string;
   to: string;
   label: string;
-  type: 'finanziert' | 'mitglied' | 'unterstützt' | 'verbreitet' | 'zitiert' | 'vorstand' | 'lobbyverband' | 'eigentümer' | '';
+  type:
+    | 'finanziert'
+    | 'mitglied'
+    | 'unterstützt'
+    | 'verbreitet'
+    | 'zitiert'
+    | 'vorstand'
+    | 'lobbyverband'
+    | 'eigentümer'
+    | 'kontakt'
+    | 'zusammenarbeit'
+    | 'steht nahe'
+    | 'toleriert'
+    | 'verbunden'
+    | 'vertrat'
+    | 'inverstiert'
+    | 'investiert'
+    | 'veröffentlicht'
+    | 'auszeichnung'
+    | '';
 }
 
 export interface NetworkData {
