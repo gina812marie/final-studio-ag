@@ -480,7 +480,7 @@ export const networkDatasets: NetworkData[] = [
         type: 'person',
         profileImage: 'images/Anja Andt.jpg',
         x: 300,
-        y: 200,
+        y: 201,
         position: 'center'
       },
       {
