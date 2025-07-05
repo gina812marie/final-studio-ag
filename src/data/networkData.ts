@@ -587,12 +587,11 @@ export const networkDatasets: NetworkData[] = [
       { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
       { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
       { from: 'eike', to: 'afd', label: 'Steht nahe', type: 'steht nahe' },
-      { from: 'cdu', to: 'werteunion', label: 'Erkennt offiziell nicht an, toleriert aber', type: 'toleriert' },
       { from: 'cdu', to: 'werteunion', label: 'Mitglieder gehören an', type: 'verbunden' },
       { from: 'werteunion', to: 'cdu', label: 'Mitglieder gehören an', type: 'verbunden' },
       { from: 'friedrich-merz', to: 'cdu', label: 'Mitglied', type: 'mitglied' },
       { from: 'friedrich-merz', to: 'blackrock', label: 'vertrat Unternehmensinteressen', type: 'vertrat' },
-      { from: 'blackrock', to: 'aramco', label: 'investiert', type: 'inverstiert' },
+      { from: 'blackrock', to: 'saudi-aramco', label: 'investiert', type: 'investiert' },
       { from: 'blackrock', to: 'exxon-mobil', label: 'investiert', type: 'investiert' },
       { from: 'exxon-mobil', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
       { from: 'heartland-institute', to: 'eike', label: 'finanziert', type: 'finanziert' },
@@ -730,44 +729,70 @@ export const networkDatasets: NetworkData[] = [
   },
   {
     id: 8,
-    title: "Netzwerk 8",
+    title: "",
     nodes: [
       {
-        id: 'org-8-1',
-        name: 'Organisation 8-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Organisation',
-        type: 'organization',
-        logo: 'ORG',
-        logoColor: '#6366f1',
-        x: 300,
-        y: 200
-      },
-      {
-        id: 'person-8-1',
-        name: 'Person 8-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Person',
+        id: 'marcus-woeller',
+        name: 'Marcus Woeller',
+        role: 'Redakteur bei WELT',
+        description: 'Redakteur bei WELT',
         type: 'person',
-        profileImage: 'images/placeholder.jpg',
-        x: 600,
-        y: 200
+        profileImage: 'images/Marcus Woeller.png',
+        x: 300,
+        y: 200,
+        position: 'center'
       },
       {
-        id: 'company-8-1',
-        name: 'Firma 8-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Firma',
+        id: 'die-welt',
+        name: 'Die Welt',
+        role: 'Deutsche Zeitung',
+        description: 'Eine überregionale deutsche Tageszeitung',
+        type: 'person',
+        profileImage: 'images/Design-ohne-Titel-66-585x585.png',
+        x: 600,
+        y: 200,
+      },
+      {
+        id: 'axel-springer',
+        name: 'Axel Springer SE',
+        role: 'Deutscher Medienkonzern',
+        description: 'Ein Medienkonzern mit mehreren multimedialen Marken, wie BILD, Welt, Business Insider, Politico, Nius, etc.',
         type: 'company',
-        logo: 'COMP',
-        logoColor: '#2563eb',
+        profileImage: 'images/Bildschirmfoto-2017-03-14-um-17.15.05.png',
         x: 900,
-        y: 200
+        y: 200,
+        
+      },
+      {
+        id: 'kkr',
+        name: 'KKR & Co.',
+        role: 'Kohlberg Kavis Roberts & Co. Investmentgesellschaft',
+        description: 'Investiert umfangreich in fossile Energieträger und betreibt Lobbyarbeit zum Thema Energie',
+        type: 'company',
+        profileImage: 'images/kkr_logo.jpg',
+        x: 900,
+        y: 200,
+        
+      },
+      {
+        id: 'bild',
+        name: 'Die BILD',
+        role: 'Deutsche Zeitung',
+        description: 'Eine überregionale deutsche Tageszeitung',
+        type: 'company',
+        profileImage: 'images/BILD.png',
+        x: 900,
+        y: 200,
+        
       }
     ],
     connections: [
-      { from: 'org-8-1', to: 'person-8-1', label: 'Beispiel Verbindung', type: 'mitglied' },
-      { from: 'person-8-1', to: 'company-8-1', label: 'Beispiel Verbindung', type: 'vorstand' }
+      { from: 'marcus-woeller', to: 'die-welt', label: 'Arbeitet bei', type: 'arbeitet bei' },
+      { from: 'die-welt', to: 'axel-springer', label: 'Gehört zu', type: 'gehört zu' },
+      { from: 'axel-springer', to: 'die-welt', label: 'Beeinflusst', type: 'beeinflußt' },
+      { from: 'axel-springer', to: 'bild', label: 'Beeinflusst', type: 'beeinflußt' },
+      { from: 'bild', to: 'axel-springer', label: 'Gehört zu', type: 'gehört zu' }, 
+   
     ]
   },
   {

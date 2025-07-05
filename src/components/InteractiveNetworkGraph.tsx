@@ -621,11 +621,19 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
           return `translate(${x},${y})`;
         });
 
-      linkLabels.selectAll("rect")
-        .attr("width", 120) // Fixed width as fallback
-        .attr("height", 28)
-        .attr("x", -60) // Center the rect
-        .attr("y", -14);
+      // Dynamische Größe für Label-Rects basierend auf Textbreite
+      linkLabels.each(function(d, i) {
+        const textElem = d3.select(this).select("text").node();
+        if (textElem && textElem instanceof SVGTextElement) {
+          const bbox = textElem.getBBox();
+          const padding = 32; // 16px links/rechts
+          d3.select(this).select("rect")
+            .attr("width", bbox.width + padding)
+            .attr("height", bbox.height + 16) // 8px oben/unten
+            .attr("x", -(bbox.width + padding) / 2)
+            .attr("y", -(bbox.height + 16) / 2);
+        }
+      });
 
       nodeGroups.attr("transform", d => `translate(${d.x},${d.y})`);
     });
