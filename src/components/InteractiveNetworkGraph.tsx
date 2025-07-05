@@ -445,6 +445,7 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
       const group = d3.select(this);
       
       if (d.type === 'person' && d.profileImage) {
+        console.log('D3 Node:', d.id, d.profileImage);
         // Add circular profile image
         group.append("defs")
           .append("pattern")
@@ -453,7 +454,7 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
           .attr("width", 1)
           .attr("height", 1)
           .append("image")
-          .attr("href", d.profileImage)
+          .attr("href", import.meta.env.BASE_URL + d.profileImage)
           .attr("width", 80)
           .attr("height", 80)
           .attr("preserveAspectRatio", "xMidYMid slice");

@@ -27,8 +27,8 @@ export const networkDatasets: NetworkData[] = [
       {
         id: 'westenergie',
         name: 'Westenergie',
-        role: 'deutscher Energiedienstleister und Infrastrukturbetreiber',
-        description: 'Großer deutscher Energieversorger',
+        role: 'Deutsche Unternehmen ',
+        description: 'Großer deutscher Energiedienstleister und Infrastrukturbetreiber',
         type: 'company',
         logo: 'westenergie',
         logoColor: '#00A651',
@@ -61,6 +61,7 @@ export const networkDatasets: NetworkData[] = [
       { from: 'katharina-reiche', to: 'westenergie', label: 'ehemalige Chefin', type: 'vorstand' },
       { from: 'katharina-reiche', to: 'wirtschaftsrat-cdu', label: 'Vorsitzende', type: 'vorstand' },
       { from: 'helmut-alt', to: 'wirtschaftsrat-cdu', label: 'Mitglied', type: 'mitglied' },
+      { from: 'helmut-alt', to: 'eike', label: 'Mitglied im Fachbeirat', type: 'mitglied' },
       { from: 'westenergie', to: 'wirtschaftsrat-cdu', label: 'Mitglied', type: 'mitglied' }
     ]
   },
@@ -95,7 +96,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Amerikanischer konservativer Think Tank',
         description: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
         type: 'organization',
-        profileImage: `${import.meta.env.BASE_URL}public\images\heartland.jpeg`,
+        profileImage: 'images/heartland.jpeg',
         x: 900,
         y: 200
       },
@@ -105,7 +106,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanisches Unternehmen',
         description: 'Weltgrößtes privates Kohlebergbauunternehmen',
         type: 'company',
-        profileImage: `${import.meta.env.BASE_URL}public\images\Peabody.jpeg`,
+        profileImage: 'images/Peabody.jpeg',
         x: 900,
         y: 200
       },
@@ -115,7 +116,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanische Industrielle',
         description: 'Charles und David Koch stehen Koch Industries vor und stecken viel Geld in die US-Politik, ind Kandidaten, Verbände und Think Tanks',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}public\images\kochbrueder-mit-bu.jpg`,
+        profileImage: 'images/kochbrueder-mit-bu.jpg',
         x: 900,
         y: 200
       },
@@ -125,7 +126,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanische Unternehmen',
         description: 'Koch Industries ist ein US-amerikanisches Unternehmen im Bereich der fossilen Rohstoffgewinnung',
         type: 'company',
-        profileImage: `${import.meta.env.BASE_URL}public/images/koch-industries.jpg`,
+        profileImage: 'images/koch-industries.jpg',
         x: 900,
         y: 200
       },
@@ -135,7 +136,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'FDP nahe Stiftung',
         description: 'Liberale politische Stiftung mit Nähe zur FDP',
         type: 'organization',
-        profileImage: `${import.meta.env.BASE_URL}images/Friedrich-Naumann-Foundation.jpg`,
+        profileImage: 'images/Friedrich-Naumann-Foundation.jpg',
         x: 900,
         y: 200
       },
@@ -145,7 +146,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Schweizer Ökonom und Migrationsforscher',
         description: 'Wirtschaftswissenschaftler und ehemaliger Direktor des Hamburgischen Weltwirtschaftsinstituts',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/csm_StraubhaarThomas_c_Claudia_Hoehne_web_ee0ef03490.jpg`,
+        profileImage: 'images/csm_StraubhaarThomas_c_Claudia_Hoehne_web_ee0ef03490.jpg',
         x: 900,
         y: 200
       },
@@ -155,7 +156,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Europäisches Institut für Klima und Energie',
         description: 'Die Speerspitze der Lobby, die den menschengemachtenKlimawandel leugnet. EIKE ist kein Forschungsinstitut und kein offizielles Institut der EU.',
         type: 'organization',
-        profileImage: `${import.meta.env.BASE_URL}images/eike-logo.png`,
+        profileImage: 'images/eike-logo.png',
         x: 900,
         y: 200
       },
@@ -165,7 +166,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
         description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/michael-limburg-2017-orig_orig.jpg`,
+        profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
         x: 900,
         y: 200
       },
@@ -175,7 +176,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: `${import.meta.env.BASE_URL}images/016423063.jpg`,
+        profileImage: 'images/016423063.jpg',
         x: 900,
         y: 200
       }
@@ -187,10 +188,12 @@ export const networkDatasets: NetworkData[] = [
       { from: 'heartland-institute', to: 'eike', label: 'entsendet Referenten', type: '' },
       { from: 'eike', to: 'heartland-institute', label: 'entsendet Referenten', type: '' },
       { from: 'gebrueder-koch', to: 'koch-industries', label: 'Eigentümer', type: 'finanziert' },
+      { from: 'gebrueder-koch', to: 'william-happer', label: 'finanziert', type: 'finanziert' },
       { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
       { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
       { from: 'thomas-straubhaar', to: 'friedrich-neumann-stiftung', label: 'Kuratoriumsmitglied', type: 'mitglied' },
       { from: 'thomas-straubhaar', to: 'eike', label: 'Mitglied des Beirats von EIKE', type: 'mitglied' },
+      { from: 'peabody-energy', to: 'william-happer', label: 'finanziert', type: 'finanziert' },
     ]
   },
   {
@@ -203,7 +206,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Europäisches Institut für Klima und Energie',
         description: 'Die Speerspitze der Lobby, die den menschengemachtenKlimawandel leugnet. EIKE ist kein Forschungsinstitut und kein offizielles Institut der EU.',
         type: 'institute',
-        profileImage: `${import.meta.env.BASE_URL}images/eike-logo.png`,
+        profileImage: 'images/eike-logo.png',
         x: 200,
         y: 200
       },
@@ -213,7 +216,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
         description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/michael-limburg-2017-orig_orig.jpg`,
+        profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
         x: 350,
         y: 500
       },
@@ -223,7 +226,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: `${import.meta.env.BASE_URL}images/afd_logo.jpg`,
+        profileImage: 'images/afd.jpg',
         x: 600,
         y: 550
       },
@@ -233,7 +236,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Parteivorsitzender der AfD',
         description: 'Zusammen mit Weidel Vorsitzende der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/tino-chrupalla-afd-100-1920x1080.jpg`,
+        profileImage: 'images/tino-chrupalla-afd-100-1920x1080.jpg',
         x: 600,
         y: 550
       },
@@ -243,7 +246,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Parteivorsitzende AfD',
         description: 'Zusammen mit Chrupalla Vorsitzende der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/alice-weidel-musk-100-1920x1080.jpg`,
+        profileImage: 'images/alice-weidel-musk-100-1920x1080.jpg',
         x: 850,
         y: 350,
         position: 'center'
@@ -254,7 +257,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Pharmagroßhandel International AG',
         description: 'Aktiengesellschaft gegründet in Zürich, handelt mit chemischen und kosmetischen Produkten',
         type: 'company',
-        profileImage: `${import.meta.env.BASE_URL}images/die-pws-pharma-whole-sale-international-ag-hat-ihren-sitz-in-zurich-fluntern.jpg`,
+        profileImage: 'images/die-pws-pharma-whole-sale-international-ag-hat-ihren-sitz-in-zurich-fluntern.jpg',
         x: 1100,
         y: 200
       }
@@ -277,7 +280,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'FDP nahe Stiftung',
         description: 'Liberale politische Stiftung mit Nähe zur FDP',
         type: 'organization',
-        profileImage: `${import.meta.env.BASE_URL}images/Friedrich-Naumann-Foundation.jpg`,
+        profileImage: 'images/Friedrich-Naumann-Foundation.jpg',
         x: 200,
         y: 180
       },
@@ -287,7 +290,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Schweizer Ökonom und Migrationsforscher',
         description: 'Wirtschaftswissenschaftler und ehemaliger Direktor des Hamburgischen Weltwirtschaftsinstituts',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/csm_StraubhaarThomas_c_Claudia_Hoehne_web_ee0ef03490.jpg`,
+        profileImage: 'images/csm_StraubhaarThomas_c_Claudia_Hoehne_web_ee0ef03490.jpg',
         x: 800,
         y: 180
       },
@@ -297,7 +300,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Europäisches Institut für Klima und Energie',
         description: 'Die Speerspitze der Lobby, die den menschengemachtenKlimawandel leugnet. EIKE ist kein Forschungsinstitut und kein offizielles Institut der EU.',
         type: 'institute',
-        profileImage: `${import.meta.env.BASE_URL}images/eike-logo.png`,
+        profileImage: 'images/eike-logo.png',
         x: 1100,
         y: 280
       },
@@ -307,7 +310,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Industrielle',
         description: 'Charles und David Koch stehen Koch Industries vor und stecken viel Geld in die US-Politik, ind Kandidaten, Verbände und Think Tanks',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/kochbrueder-mit-bu.jpg`,
+        profileImage: 'images/kochbrueder-mit-bu.jpg',
         x: 380,
         y: 280
       },
@@ -328,7 +331,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
         description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/michael-limburg-2017-orig_orig.jpg`,
+        profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
         x: 350,
         y: 500
       },
@@ -338,7 +341,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanische Industrielle',
         description: 'Charles und David Koch stehen Koch Industries vor und stecken viel Geld in die US-Politik, ind Kandidaten, Verbände und Think Tanks',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/kochbrueder-mit-bu.jpg`,
+        profileImage: 'images/kochbrueder-mit-bu.jpg',
         x: 900,
         y: 200
       },
@@ -348,7 +351,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'US-amerikanische Unternehmen',
         description: 'Exxon Mobil ist ein US-amerikanisches Unternehmen im Bereich der Mineralöle ',
         type: 'organization',
-        profileImage: `${import.meta.env.BASE_URL}images/Exxon-Mobil-Corporation-Logo.png`,
+        profileImage: 'images/Exxon-Mobil-Corporation-Logo.png',
         x: 480,
         y: 620
       },
@@ -358,7 +361,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Amerikanischer konservativer Think Tank',
         description: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
         type: 'organization',
-        profileImage: `${import.meta.env.BASE_URL}images/heartland.jpeg`,
+        profileImage: 'images/heartland.jpeg',
         x: 900,
         y: 200
       },
@@ -368,13 +371,12 @@ export const networkDatasets: NetworkData[] = [
         role: 'Alternative für Deutschland',
         description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
         type: 'party',
-        profileImage: `${import.meta.env.BASE_URL}images/016423063.jpg`,
+        profileImage: 'images/016423063.jpg',
         x: 900,
         y: 200
       }
     ],
     connections: [
-      { from: 'thomas-straubhaar', to: 'friedreich-neumann-stiftung', label: 'Kuratoriumsmitglied', type: 'mitglied' },
       { from: 'gebrueder-koch', to: 'koch-industries', label: 'Eigentümer', type: 'eigentümer' },
       { from: 'gebrüder-koch', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
       { from: 'thomas-straubhaar', to: 'eike', label: 'Mitglied des Beirats von EIKE', type: 'mitglied' },
@@ -384,122 +386,346 @@ export const networkDatasets: NetworkData[] = [
       { from: 'heartland-institute', to: 'eike', label: 'entsendet Referenten', type: '' },
       { from: 'eike', to: 'heartland-institute', label: 'entsendet Referenten', type: '' },
       { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
-      { from: 'william-happer', to: 'co2-coalition', label: 'Gründungsmitglied', type: 'vorstand' },
-      { from: 'peabody-energy', to: 'william-happer', label: 'finanziert', type: 'finanziert' }
+      { from: 'gebrüder-koch', to: 'heartland-institute', label: 'Finanziert', type: 'finanziert' },
+      { from: 'exxon-mobil', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' }
     ]
   },
   {
     id: 5,
-    title: "Netzwerk 5",
+    title: "",
     nodes: [
       {
-        id: 'org-5-1',
-        name: 'Organisation 5-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Organisation',
-        type: 'organization',
-        logo: 'ORG',
-        logoColor: '#6366f1',
+        id: 'afd',
+        name: 'AfD',
+        role: 'Alternative für Deutschland',
+        description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
+        type: 'party',
+        profileImage: 'images/016423063.jpg',
         x: 300,
-        y: 200
+        y: 200,
+        position: 'center'
       },
       {
-        id: 'person-5-1',
-        name: 'Person 5-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Person',
+        id: 'tino-chrupalla',
+        name: 'Tino Chrupalla',
+        role: 'Parteivorsitzender der AfD',
+        description: 'Zusammen mit Weidel Vorsitzende der AfD',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        profileImage: 'images/tino-chrupalla-afd-100-1920x1080.jpg',
         x: 600,
         y: 200
       },
       {
-        id: 'company-5-1',
-        name: 'Firma 5-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Firma',
+        id: 'eike',
+        name: 'EIKE',
+        role: 'Europäisches Institut für Klima und Energie',
+        description: 'Die Speerspitze der Lobby, die den menschengemachtenKlimawandel leugnet. EIKE ist kein Forschungsinstitut und kein offizielles Institut der EU.',
         type: 'company',
-        logo: 'COMP',
-        logoColor: '#2563eb',
+        profileImage: 'images/eike-logo.png',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'michael-limburg',
+        name: 'Michael Limburg',
+        role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
+        description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
+        type: 'person',
+        profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'vernunftkraft',
+        name: 'Vernunftkraft',
+        role: 'Dachverband von Anti-Windkraft-Initiativen',
+        description: 'Setzt sich für den Ausbaustopp von Windkraft und Photovoltaik ein.',
+        type: 'organization',
+        profileImage: 'images/Bundesinitiative_Vernunftkraft.png',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'bmwi',
+        name: 'BMWI',
+        role: 'Bundesministerium für Wirtschaft und Energie',
+        description: 'Bundesministerium für Wirtschaft und Energie',
+        type: 'ministerium',
+        profileImage: 'images/logo_BMWi-e1620979077170.png',
         x: 900,
         y: 200
       }
     ],
     connections: [
-      { from: 'org-5-1', to: 'person-5-1', label: 'Beispiel Verbindung', type: 'mitglied' },
-      { from: 'person-5-1', to: 'company-5-1', label: 'Beispiel Verbindung', type: 'vorstand' }
+      { from: 'afd', to: 'vernunftkraft', label: 'Unterstützt', type: 'unterstützt' },
+      { from: 'vernunftkraft', to: 'bmwi', label: 'Pflegt Kontakte', type: 'kontakt' },
+      { from: 'vernunftkraft', to: 'eike', label: 'Arbeitet zusammen mit', type: 'zusammenarbeit' },
+      { from: 'eike', to: 'afd', label: 'Unterstützt mit Argumenten und Personen', type: 'unterstützt' },
+      { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
+      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
+      { from: 'tino-chrupalla', to: 'afd', label: 'Mitglied', type: 'mitglied' },
+  
+    
     ]
   },
   {
     id: 6,
-    title: "Netzwerk 6",
+    title: "",
     nodes: [
       {
-        id: 'org-6-1',
-        name: 'Organisation 6-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Organisation',
-        type: 'organization',
-        logo: 'ORG',
-        logoColor: '#6366f1',
+        id: 'anja-arndt',
+        name: 'Anja Arndt',
+        role: 'Politikerin',
+        description: 'Mitglied des Europäischen Parlaments für die AfD',
+        type: 'person',
+        profileImage: 'images/Anja Andt.jpg',
         x: 300,
-        y: 200
+        y: 200,
+        position: 'center'
       },
       {
-        id: 'person-6-1',
-        name: 'Person 6-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Person',
-        type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        id: 'afd',
+        name: 'AfD',
+        role: 'Alternative für Deutschland',
+        description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
+        type: 'party',
+        profileImage: 'images/016423063.jpg',
         x: 600,
         y: 200
       },
       {
-        id: 'company-6-1',
-        name: 'Firma 6-1',
-        role: 'Beispiel Rolle',
-        description: 'Beschreibung der Firma',
+        id: 'eike',
+        name: 'EIKE',
+        role: 'Europäisches Institut für Klima und Energie',
+        description: 'Die Speerspitze der Lobby, die den menschengemachtenKlimawandel leugnet. EIKE ist kein Forschungsinstitut und kein offizielles Institut der EU.',
         type: 'company',
-        logo: 'COMP',
-        logoColor: '#2563eb',
+        profileImage: 'images/eike-logo.png',
         x: 900,
         y: 200
-      }
+      },
+      {
+        id: 'michael-limburg',
+        name: 'Michael Limburg',
+        role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
+        description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
+        type: 'person',
+        profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'werteunion',
+        name: 'Werteunion',
+        role: 'Verein',
+        description: 'Verein besonders rechter CDU-Politiker. welche den Zusammenhang zwischen Klimawandel und dem CO2-Ausstoß leugnen',
+        type: 'organization',
+        profileImage: 'images/WerteUnion-Logo-Vector.svg.png',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'heartland-institute',
+        name: 'The Heartland Institute',
+        role: 'Amerikanischer konservativer Think Tank',
+        description: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
+        type: 'organization',
+        profileImage: 'images/heartland.jpeg',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'cdu',
+        name: 'CDU',
+        role: 'Christlich Demokratische Union',
+        description: 'Christdemokratische, konservative ind wirtschaftsliberale Partei im deutschen Bundestag',
+        type: 'party',
+        profileImage: 'images/	OIP (1).jpg',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'friedrich-merz',
+        name: 'Friedrich Merz',
+        role: 'Bundeskanzler',
+        description: 'Mitglied der CDU',
+        type: 'person',
+        profileImage: 'images/fritze merz.jpg',
+        x: 900,
+        y: 200
+      },
+      {
+        id: 'blackrock',
+        name: 'Blackrock',
+        role: 'US-amerikanische Investmentgesellschaft',
+        description: 'Der größte Vermögensverwalter und gleichzeitig das einflussreichste Finanzunternehmen der Welt',
+        type: 'company',
+        profileImage: 'images/black rock.jpg',
+        x: 900,
+        y: 200
+      },  {
+        id: 'exxon-mobil',
+        name: 'Exxon Mobil',
+        role: 'US-amerikanische Unternehmen',
+        description: 'Exxon Mobil ist ein US-amerikanisches Unternehmen im Bereich der Mineralöle ',
+        type: 'company',
+        profileImage: 'images/Exxon-Mobil-Corporation-Logo.png',
+        x: 900,
+        y: 200
+      },  {
+        id: 'saudi-aramco',
+        name: 'Saudi Aramco',
+        role: 'Saudi-arabische Ölgesellschaft',
+        description: 'Die weltgrößte Erdölfördergesellschaft',
+        type: 'company',
+        profileImage: 'images/aramco.jpg',
+        x: 900,
+        y: 200
+      },
     ],
     connections: [
-      { from: 'org-6-1', to: 'person-6-1', label: 'Beispiel Verbindung', type: 'mitglied' },
-      { from: 'person-6-1', to: 'company-6-1', label: 'Beispiel Verbindung', type: 'vorstand' }
+      { from: 'anja-arndt', to: 'afd', label: 'Mitglied', type: 'mitglied' },
+      { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
+      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
+      { from: 'eike', to: 'afd', label: 'Steht nahe', type: 'steht nahe' },
+      { from: 'cdu', to: 'werteunion', label: 'Erkennt offiziell nicht an, toleriert aber', type: 'toleriert' },
+      { from: 'cdu', to: 'werteunion', label: 'Mitglieder gehören an', type: 'verbunden' },
+      { from: 'werteunion', to: 'cdu', label: 'Mitglieder gehören an', type: 'verbunden' },
+      { from: 'friedrich-merz', to: 'cdu', label: 'Mitglied', type: 'mitglied' },
+      { from: 'friedrich-merz', to: 'blackrock', label: 'vertrat Unternehmensinteressen', type: 'vertrat' },
+      { from: 'blackrock', to: 'aramco', label: 'investiert', type: 'inverstiert' },
+      { from: 'blackrock', to: 'exxon-mobil', label: 'investiert', type: 'investiert' },
+      { from: 'exxon-mobil', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
+      { from: 'heartland-institute', to: 'eike', label: 'finanziert', type: 'finanziert' },
+    
     ]
   },
   {
     id: 7, 
-    title: "Netzwerk 7 - Beispiel Verbindung",
+    title: "",
     nodes: [
       {
-        id: 'organisation-7',
-        name: 'Organisation 7',
-        role: 'Beispiel Organisation',
-        description: 'Hier können Sie Ihre eigenen Daten einfügen. Bearbeiten Sie einfach die networkData.ts Datei.',
+        id: 'peabody-energy',
+        name: 'Peabody Energy',
+        role: 'US-amerikanische Kohlegesellschaft',
+        description: 'Die größte Kohlegesellschaft der Welt',
         type: 'organization',
-        logo: 'ORG',
-        logoColor: '#6366f1',
+        profileImage: 'images/peabody-energy.png',
         x: 300, // Links
-        y: 350
+        y: 350,
+       
       },
       {
-        id: 'professor-happer',
-        name: 'Professor William Happer',
+        id: 'william-happer',
+        name: 'William Happer',
         role: 'Professor für Physik an der Princeton University',
-        description: 'Ersetzen Sie diese Platzhalter-Daten mit echten Informationen.',
+        description: 'Professor für Physik an der Princeton University',
         type: 'person',
         profileImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
         x: 900, // Rechts
-        y: 350
-      }
+        y: 350,
+        position: 'center'
+      },
+      {
+        id: 'eike',
+        name: 'EIKE',
+        role: 'Europäisches Institut für Klima und Energie',
+        description: 'Die Speerspitze der Lobby, die den menschengemachtenKlimawandel leugnet. EIKE ist kein Forschungsinstitut und kein offizielles Institut der EU.',
+        type: 'person',
+        profileImage: 'images/eike-logo.png',
+        x: 900, // Rechts
+        y: 350,
+       
+      },
+      {
+        id: 'heartland-institute',
+        name: 'The Heartland Institute',
+        role: 'Amerikanischer konservativer Think Tank',
+        description: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
+        type: 'person',
+        profileImage: 'images/heartland.jpeg',
+        x: 900, // Rechts
+        y: 350,
+       
+      },{
+        id: 'gebrüder-koch',
+        name: 'Gebäudeer-Koch',
+        role: 'Industrieller',
+        description: 'Eigentümer von Peabody Energy',
+        type: 'person',
+        profileImage: 'images/kochbrueder-mit-buch.jpg',
+        x: 900, // Rechts
+        y: 350,
+   
+      },{
+        id: 'koch-industries',
+        name: 'Koch Industries',
+        role: 'US-amerikanische Industrieunternehmen',
+        description: 'Das größte Industrieunternehmen der Welt',
+        type: 'person',
+        profileImage: 'images/koch-industries.png',
+        x: 900, // Rechts
+        y: 350,
+        
+      },{
+        id: 'co2-coalition',
+        name: 'CO2 Coalition',
+        role: 'Konservativer Think Tank und Klimaleugnerorganisation',
+        description: 'Wurde gegründet, um den wissenschaftlichen konsens zu menschengemachten globalen Erwärmung zu bestreiten',
+        type: 'person',
+        profileImage: 'images/CO2-Coalition-Chat-landscape-resize.webp',
+        x: 900, // Rechts
+        y: 350,
+        
+      },{
+        id: 'afd',
+        name: 'AfD',
+        role: 'Alternative für Deutschland',
+        description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
+        type: 'person',
+        profileImage: 'images/016423063.jpg',
+        x: 900, // Rechts
+        y: 350,
+        
+      },{
+        id: 'michael-limburg',
+        name: 'Michael Limburg',
+        role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
+        description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
+        type: 'person',
+        profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
+        x: 900, // Rechts
+        y: 350,
+        
+      },{
+        id: 'thomas-straubhaar',
+        name: 'Thomas Straubhaar',
+        role: 'Schweizer Ökonom und Migrationsforscher',
+        description: 'Wirtschaftswissenschaftler und ehemaliger Direktor des Hamburgischen Weltwirtschaftsinstituts',
+        type: 'person',
+        profileImage: 'images/csm_StraubhaarThomas_c_Claudia_Hoehne_web_ee0ef03490.jpg',
+        x: 900, // Rechts
+        y: 350,
+        
+      },{
+        id: 'friedreich-neumann-stiftung',
+        name: 'Friedreich Neumann Stiftung',
+        role: 'FDP nahe Stiftung',
+        description: 'Liberale politische Stiftung mit Nähe zur FDP',
+        type: 'organization',
+        profileImage: 'images/Friedrich-Naumann-Foundation.jpg',
+        x: 200,
+        y: 180
+      },
+
     ],
     connections: [
-      { from: 'organisation-7', to: 'professor-happer', label: 'Beispiel Verbindung', type: 'mitglied' }
+      { from: 'peabody-energy', to: 'william-happer', label: 'finanziert', type: 'finanziert' },
+      { from: 'william-happer', to: 'eike', label: 'Veröffentlicht Artikel und wird eingeladen', type: 'veröffentlicht' },
+      { from: 'eike', to: 'heartland-institute', label: 'Veröffentlicht Artikel und wird eingeladen', type: 'veröffentlicht' },
+      { from: 'heartland-institute', to: 'gebrüder-koch', label: 'Veröffentlicht Artikel und wird eingeladen', type: 'veröffentlicht' },
+      { from: 'gebrüder-koch', to: 'koch-industries', label: 'Veröffentlicht Artikel und wird eingeladen', type: 'veröffentlicht' },
+      { from: 'koch-industries', to: 'co2-coalition', label: 'Veröffentlicht Artikel und wird eingeladen', type: 'veröffentlicht' },
+      { from: 'co2-coalition', to: 'afd', label: 'Veröffentlicht Artikel und wird eingeladen', type: 'veröffentlicht' },
     ]
   },
   {
@@ -523,7 +749,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -565,7 +791,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -607,7 +833,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -649,7 +875,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -691,7 +917,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -733,7 +959,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: `${import.meta.env.BASE_URL}images/placeholder.jpg`,
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -775,7 +1001,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: '/images/placeholder.jpg',
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -817,7 +1043,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: '/images/placeholder.jpg',
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -859,7 +1085,7 @@ export const networkDatasets: NetworkData[] = [
         role: 'Beispiel Rolle',
         description: 'Beschreibung der Person',
         type: 'person',
-        profileImage: '/images/placeholder.jpg',
+        profileImage: 'images/placeholder.jpg',
         x: 600,
         y: 200
       },
@@ -905,7 +1131,7 @@ export const createPersonNode = (
   role,
   description,
   type: 'person' as const,
-  profileImage: imagePath ? `/images/${imagePath}` : undefined,
+  profileImage: imagePath ? `images/${imagePath}` : undefined,
   x,
   y
 });
