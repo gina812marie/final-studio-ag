@@ -468,8 +468,13 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
     // Add profile images, logos, or fallback initials
     nodeGroups.each(function(d) {
       const group = d3.select(this);
-      
-      if (d.profileImage) {
+      let imgSrc = d.profileImage;
+      if (imgSrc && imgSrc.startsWith('images/')) {
+        imgSrc = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL)
+          ? import.meta.env.BASE_URL + imgSrc
+          : imgSrc;
+      }
+      if (imgSrc) {
         // Add circular profile image for any node with profileImage
         group.append("defs")
           .append("pattern")
@@ -478,11 +483,10 @@ export default function InteractiveNetworkGraph({ data, onBack }: InteractiveNet
           .attr("width", 1)
           .attr("height", 1)
           .append("image")
-          .attr("href", d.profileImage)
+          .attr("href", imgSrc)
           .attr("width", 80)
           .attr("height", 80)
           .attr("preserveAspectRatio", "xMidYMid slice");
-
         group.append("circle")
           .attr("cx", 0)
           .attr("cy", -30)
