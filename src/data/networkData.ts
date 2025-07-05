@@ -1141,10 +1141,12 @@ export const networkDatasets: NetworkData[] = [
     connections: [
       { from: 'heartland-institute', to: 'eike', label: 'Entsendet Referenten', type: 'unterstützt' },
       { from: 'eike', to: 'heartland-institute', label: 'Finanziert', type: 'finanziert' },
+      { from: 'heartland-institute', to: 'eike', label: 'entsendet Referenten', type: 'zusammenarbeit' },
+      { from: 'eike', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
       { from: 'martina-böswald', to: 'afd', label: 'Mitglied', type: 'mitglied' },
       { from: 'werteunion', to: 'afd', label: 'Steht der AfD nahe', type: 'steht nahe' },
-      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' },
-      { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' }
+      { from: 'michael-limburg', to: 'eike', label: 'Vizepräsident', type: 'vorstand' },
+      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' }
     ]
   },
   {
@@ -1152,117 +1154,95 @@ export const networkDatasets: NetworkData[] = [
     title: "Netzwerk 14",
     nodes: [
       {
-        id: 'friedreich-neumann-stiftung',
-        name: 'Friedreich Neumann Stiftung',
-        role: 'FDP nahe Stiftung',
-        description: 'Liberale politische Stiftung mit Nähe zur FDP',
-        type: 'organization',
-        profileImage: 'images/Friedrich-Naumann-Foundation.jpg',
-        x: 200,
-        y: 180
+        id: 'gebrueder-koch',
+        name: 'Gebrüder Koch',
+        role: 'Charles und David Koch',
+        description: 'Charles und David Koch stehen Koch Industries vor und stecken viel Geld in die US-Politik, in Kandidaten, Verbände und Denkfabriken',
+        type: 'person',
+        profileImage: 'images/kochbrueder-mit-bu.jpg',
+        x: 420,
+        y: 60
       },
       {
-        id: 'thomas-straubhaar',
-        name: 'Thomas Straubhaar',
-        role: 'Schweizer Ökonom und Migrationsforscher',
-        description: 'Wirtschaftswissenschaftler und ehemaliger Direktor des Hamburgischen Weltwirtschaftsinstituts',
-        type: 'person',
-        profileImage: 'images/csm_StraubhaarThomas_c_Claudia_Hoehne_web_ee0ef03490.jpg',
-        x: 800,
-        y: 180
+        id: 'koch-industries',
+        name: 'Koch Industries',
+        role: 'US-Chemieindustrie\nUnternehmen',
+        description: 'Im Bereich der fossilen Rohstoffgewinnung tätig',
+        type: 'company',
+        profileImage: 'images/koch-industries.jpg',
+        x: 120,
+        y: 200
+      },
+      {
+        id: 'exxonmobil',
+        name: 'ExxonMobil',
+        role: 'US-amerikanisches Unternehmen',
+        description: 'Im Bereich Mineralöle tätig',
+        type: 'company',
+        profileImage: 'images/Exxon-Mobil-Corporation-Logo.png',
+        x: 420,
+        y: 320
+      },
+      {
+        id: 'heartland-institute',
+        name: 'The Heartland Institute',
+        role: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
+        description: 'US Think Tank',
+        type: 'organization',
+        profileImage: 'images/heartland.jpeg',
+        x: 700,
+        y: 200
       },
       {
         id: 'eike',
         name: 'EIKE',
         role: 'Europäisches Institut für Klima und Energie',
-        description: 'Die Speerspitze der Lobby, die den menschengemachtenKlimawandel leugnet. EIKE ist kein Forschungsinstitut und kein offizielles Institut der EU.',
+        description: 'Kein Forschungsinstitut und kein offizielles Institut der EU, leugnen ebenfalls den menschengemachten Klimawandel',
         type: 'institute',
         profileImage: 'images/eike-logo.png',
-        x: 1100,
-        y: 280
+        x: 1000,
+        y: 60
       },
       {
-        id: 'gebrueder-koch',
-        name: 'Gebrüder Koch',
-        role: 'Industrielle',
-        description: 'Charles und David Koch stehen Koch Industries vor und stecken viel Geld in die US-Politik, ind Kandidaten, Verbände und Think Tanks',
-        type: 'person',
-        profileImage: 'images/kochbrueder-mit-bu.jpg',
-        x: 380,
-        y: 280
-      },
-     
-      {
-        id: 'sebastian-leuning',
-        name: 'Sebastian Leuning',
-        role: '',
-        description: '',
-        type: 'person',
-        x: 680,
-        y: 420,
-        position: 'center'
+        id: 'acnr',
+        name: 'American Consolidated Natural Resources',
+        role: 'Ehemaliges US-amerikanisches Unternehmen',
+        description: 'War im Bereich Kohlebergbau tätig',
+        type: 'company',
+        profileImage: 'images/placeholder.jpg',
+        x: 700,
+        y: 320
       },
       {
         id: 'michael-limburg',
         name: 'Michael Limburg',
-        role: 'Ingenieur, Sachbuchautor, Klimawandelleugner und Politiker (AfD)',
-        description: 'Mitglied des Bundesfachausschusses Energiepolitik der AfD',
+        role: 'Klimawandelleugner',
+        description: 'Klimawandelleugner und AfD-Politiker',
         type: 'person',
         profileImage: 'images/michael-limburg-2017-orig_orig.jpg',
-        x: 350,
-        y: 500
-      },
-      {
-        id: 'gebrueder-koch',
-        name: 'Gebrüder Koch',
-        role: 'US-amerikanische Industrielle',
-        description: 'Charles und David Koch stehen Koch Industries vor und stecken viel Geld in die US-Politik, ind Kandidaten, Verbände und Think Tanks',
-        type: 'person',
-        profileImage: 'images/kochbrueder-mit-bu.jpg',
-        x: 900,
-        y: 200
-      },
-      {
-        id: 'exxon-mobil',
-        name: 'Exxon Mobil',
-        role: 'US-amerikanische Unternehmen',
-        description: 'Exxon Mobil ist ein US-amerikanisches Unternehmen im Bereich der Mineralöle ',
-        type: 'organization',
-        profileImage: 'images/Exxon-Mobil-Corporation-Logo.png',
-        x: 480,
-        y: 620
-      },
-      {
-        id: 'heartland-institute',
-        name: 'The Heartland Institute',
-        role: 'Amerikanischer konservativer Think Tank',
-        description: 'Die weltweit bekannteste Organisation die den menschengemachten Klimawandel leugnet',
-        type: 'organization',
-        profileImage: 'images/heartland.jpeg',
-        x: 900,
+        x: 1200,
         y: 200
       },
       {
         id: 'afd',
         name: 'AfD',
-        role: 'Alternative für Deutschland',
-        description: 'Rechtspopulistische und rechtsextreme Partei im deutschen Bundestag',
+        role: 'Rechtspopulistische Partei',
+        description: 'Rechtspopulistische Partei',
         type: 'party',
         profileImage: 'images/afd.jpg',
-        x: 900,
-        y: 200
+        x: 1200,
+        y: 400
       }
     ],
     connections: [
       { from: 'gebrueder-koch', to: 'koch-industries', label: 'Eigentümer', type: 'eigentümer' },
-      { from: 'gebrüder-koch', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
       { from: 'koch-industries', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
-      { from: 'heartland-institute', to: 'eike', label: 'Entsendet Referenten', type: 'unterstützt' },
-      { from: 'eike', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
-      { from: 'afd', to: 'hyko', label: 'Mitglieder gehören an', type: 'mitglied' },
-      { from: 'hyko', to: 'eike', label: 'Lehnen Klimaschutzgesetze ab und sind eng verbunden mit EIKE', type: 'zusammenarbeit' },
-      { from: 'afd', to: 'vernunftkraft', label: 'arbeitet zusammen', type: 'zusammenarbeit' },
-      { from: 'vernunftkraft', to: 'afd', label: 'arbeitet zusammen', type: 'zusammenarbeit' }
+      { from: 'exxonmobil', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
+      { from: 'acnr', to: 'heartland-institute', label: 'finanziert', type: 'finanziert' },
+      { from: 'heartland-institute', to: 'eike', label: 'finanziert', type: 'finanziert' },
+      { from: 'heartland-institute', to: 'eike', label: 'entsendet Referenten', type: 'zusammenarbeit' },
+      { from: 'eike', to: 'michael-limburg', label: 'Vizepräsident', type: 'vorstand' },
+      { from: 'michael-limburg', to: 'afd', label: 'Mitglied', type: 'mitglied' }
     ]
   },
   {
